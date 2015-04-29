@@ -1,0 +1,6 @@
+v1.02  - Update timing constraints to have a clean Timing Analysis report
+       - Update doc: Timing analysis, benchmark numbers and bench_all
+       - Remove delay_200us component
+v1.01  - Update doc with board documentation
+       - Change platform frequency & UART baudrate
+v1.0   - Initial release
