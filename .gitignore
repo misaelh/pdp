@@ -1,0 +1,7 @@
+*.qdb
+*.qtl
+*.qpg
+plasma_PDP/sim/runsim.do
+plasma_PDP/sim/output.txt
+*.wlf
+plasma_PDP/sim/work/_info
