@@ -2,24 +2,10 @@
 -- TITLE: Random Access Memory for Xilinx
 -- AUTHOR: Steve Rhoads (rhoadss@yahoo.com)
 -- DATE CREATED: 11/06/05
--- FILENAME: cache_ram.vhd
+-- FILENAME: boot_ram.vhd
 -- PROJECT: Plasma CPU core
 -- COPYRIGHT: Software placed into the public domain by the author.
 --    Software 'as is' without warranty.  Author liable for nothing.
--- DESCRIPTION:
---    Implements Plasma Cache RAM as RAMB 
---    The file is configurable up to 64KB, in blocks of 8 KB.
---    The Cache Data RAM uses only the lower 4KB of block0
---
--- MEMORY MAP
---    0000..1FFF : 8KB   8KB  block0
---    2000..3FFF : 8KB  16KB  block1 
---    4000..5FFF : 8KB  24KB  block2
---    6000..7FFF : 8KB  32KB  block3
---    8000..9FFF : 8KB  40KB  block4
---    A000..BFFF : 8KB  48KB  block5
---    C000..DFFF : 8KB  56KB  block6
---    E000..FFFF : 8KB  64KB  block7
 ---------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -29,26 +15,27 @@ use work.mlite_pack.all;
 library UNISIM;
 use UNISIM.vcomponents.all;
 
-entity cache_ram is
-   generic( block_count : integer := 1); 
+entity boot_ram is
+   generic(memory_type : string := "DEFAULT";
+           --Number of 8KB blocks of internal RAM, up to 64KB (1 to 8)
+           block_count : integer := 1); 
    port(clk               : in std_logic;
         enable            : in std_logic;
-        write_byte_enable : in std_logic_vector(7 downto 0);
+        write_byte_enable : in std_logic_vector(3 downto 0);
         address           : in std_logic_vector(31 downto 2);
-        data_write        : in std_logic_vector(63 downto 0);
+        data_write        : in std_logic_vector(31 downto 0);
         data_read         : out std_logic_vector(31 downto 0));
-end; --entity ram
+end; --entity boot_ram
 
-architecture logic of cache_ram is
+architecture logic of boot_ram is
    --type
-   type mem32_vector IS ARRAY (NATURAL RANGE<>) OF std_logic_vector(63 downto 0);
+   type mem32_vector IS ARRAY (NATURAL RANGE<>) OF std_logic_vector(31 downto 0);
 
    --Which 8KB block
    alias block_sel: std_logic_vector(2 downto 0) is address(15 downto 13);
 
    --Address within a 8KB block (without lower two bits)
-   alias block_addr : std_logic_vector(9 downto 0) is address(12 downto 3);
---   alias block_addr : std_logic_vector(10 downto 0) is address(12 downto 2);
+   alias block_addr : std_logic_vector(10 downto 0) is address(12 downto 2);
 
    --Block enable with 1 bit per memory block
    signal block_enable: std_logic_vector(7 downto 0);
@@ -79,20 +66,16 @@ begin
 
    proc_do: process (block_do, block_sel_buf) is
    begin
-      if address(2) then
-         data_read <= block_do(conv_integer(block_sel_buf))(63 downto 32);
-      else
-         data_read <= block_do(conv_integer(block_sel_buf))(31 downto 0);
-      end if;
+      data_read <= block_do(conv_integer(block_sel_buf));
    end process;
 	
 	-- BLOCKS generation
    block0: if (block_count > 0) generate
 	begin
 
-    ram_byte3 : RAMB16_S18
+    ram_byte3 : RAMB16_S9
    generic map (
-INIT_00 => X"000000000000000000000000000000000000000000000000000000000c080400",
+INIT_00 => X"000000000000000000000000000000000000000000000000003c0014343c8c3c",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -158,19 +141,19 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(63 downto 48), 
+      DO   => block_do(0)(31 downto 24), 
       DOP  => open, 
       ADDR => block_addr,
       CLK  => clk, 
-      DI   => data_write(63 downto 48),
+      DI   => data_write(31 downto 24),
       DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(7) & write_byte_enable(6));
+      WE   => write_byte_enable(3));
 
-    ram_byte2 : RAMB16_S18
+    ram_byte2 : RAMB16_S9
    generic map (
-INIT_00 => X"000000000000000000000000000000000000000000000000000000000d090501",
+INIT_00 => X"00000000000000000000000000000000000000000000000060030085a5056403",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -236,20 +219,19 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(47 downto 32),
+      DO   => block_do(0)(23 downto 16),
       DOP  => open, 
       ADDR => block_addr,
       CLK  => clk, 
-      DI   => data_write(47 downto 32),
+      DI   => data_write(23 downto 16),
       DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(5) & write_byte_enable(4));
-      --WE   => write_byte_enable(2));
+      WE   => write_byte_enable(2));
 	
-    ram_byte1 : RAMB16_S18
+    ram_byte1 : RAMB16_S9
    generic map (
-INIT_00 => X"000000000000000000000000000000000000000000000000000000000e0a0602",
+INIT_00 => X"00000000000000000000000000000000000000000000000000100000ffff0010",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -315,20 +297,19 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(31 downto 16),
+      DO   => block_do(0)(15 downto 8),
       DOP  => open, 
       ADDR => block_addr,
       CLK  => clk, 
-      DI   => data_write(31 downto 16),
+      DI   => data_write(15 downto 8),
       DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(3) & write_byte_enable(2));
-      --WE   => write_byte_enable(1));
+      WE   => write_byte_enable(1));
 
-    ram_byte0 : RAMB16_S18
+    ram_byte0 : RAMB16_S9
    generic map (
-INIT_00 => X"000000000000000000000000000000000000000000000000000000000f0b0703",
+INIT_00 => X"00000000000000000000000000000000000000000000000008080002ffff0000",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_03 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -394,16 +375,15 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(15 downto 0),
+      DO   => block_do(0)(7 downto 0),
       DOP  => open, 
       ADDR => block_addr,
       CLK  => clk, 
-      DI   => data_write(15 downto 0),
+      DI   => data_write(7 downto 0),
       DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(1) & write_byte_enable(0));
-      --WE   => write_byte_enable(0));
+      WE   => write_byte_enable(0));
    end generate; --block0
 	
 
