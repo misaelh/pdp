@@ -14,7 +14,7 @@ entity ddr_ctrl_top is
       address   : in std_logic_vector(31 downto 2);
       byte_we   : in std_logic_vector(3 downto 0);
       data_w    : in std_logic_vector(31 downto 0);
-      data_r    : out std_logic_vector(31 downto 0);
+      data_r    : out std_logic_vector(63 downto 0);
       no_start  : in std_logic;
       no_stop   : in std_logic;
       pause     : out std_logic;
@@ -61,7 +61,7 @@ architecture logic of ddr_ctrl_top is
            address  : in std_logic_vector(26 downto 2);
            byte_we  : in std_logic_vector(3 downto 0);
            data_w   : in std_logic_vector(31 downto 0);
-           data_r   : out std_logic_vector(31 downto 0);
+           data_r   : out std_logic_vector(63 downto 0);
            active   : in std_logic;
            no_start : in std_logic;
            no_stop  : in std_logic;

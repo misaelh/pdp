@@ -36,7 +36,7 @@ entity cache_ram is
         write_byte_enable : in std_logic_vector(7 downto 0);
         address           : in std_logic_vector(31 downto 2);
         data_write        : in std_logic_vector(63 downto 0);
-        data_read         : out std_logic_vector(31 downto 0));
+        data_read         : out std_logic_vector(63 downto 0));
 end; --entity ram
 
 architecture logic of cache_ram is
@@ -59,6 +59,10 @@ architecture logic of cache_ram is
    --Remember which block was selected
    signal block_sel_buf: std_logic_vector(2 downto 0);
 
+   signal byte_enable: std_logic_vector(1 downto 0);
+--   signal data_r: std_logic_vector(63 downto 0);
+
+   
 begin
    block_enable<= "00000001" when (enable='1') and (block_sel="000") else 
                   "00000010" when (enable='1') and (block_sel="001") else 
@@ -77,16 +81,20 @@ begin
       end if;
    end process;
 
-   proc_do: process (block_do, block_sel_buf) is
+   proc_do: process (address, block_do, block_sel_buf) is
    begin
-      if address(2) then
-         data_read <= block_do(conv_integer(block_sel_buf))(63 downto 32);
-      else
-         data_read <= block_do(conv_integer(block_sel_buf))(31 downto 0);
-      end if;
+     --data_r <= block_do(conv_integer(block_sel_buf))(63 downto 0);
+         data_read <= block_do(conv_integer(block_sel_buf))(63 downto 0);
    end process;
-	
-	-- BLOCKS generation
+   
+   proc_be: process (write_byte_enable) is
+   begin 
+     for I in 0 to 1 loop
+         byte_enable(I) <= write_byte_enable(4*I+3) AND write_byte_enable(4*I+2) AND write_byte_enable(4*I+1) AND write_byte_enable(4*I);
+     end loop;
+   end process;
+
+   -- BLOCKS generation
    block0: if (block_count > 0) generate
 	begin
 
@@ -163,10 +171,10 @@ INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
       ADDR => block_addr,
       CLK  => clk, 
       DI   => data_write(63 downto 48),
-      DIP  => ZERO(0 downto 0),
+      DIP  => ZERO(1 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(7) & write_byte_enable(6));
+      WE   => byte_enable(1));
 
     ram_byte2 : RAMB16_S18
    generic map (
@@ -241,10 +249,10 @@ INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
       ADDR => block_addr,
       CLK  => clk, 
       DI   => data_write(47 downto 32),
-      DIP  => ZERO(0 downto 0),
+      DIP  => ZERO(1 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(5) & write_byte_enable(4));
+      WE   => byte_enable(1));
       --WE   => write_byte_enable(2));
 	
     ram_byte1 : RAMB16_S18
@@ -320,10 +328,10 @@ INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
       ADDR => block_addr,
       CLK  => clk, 
       DI   => data_write(31 downto 16),
-      DIP  => ZERO(0 downto 0),
+      DIP  => ZERO(1 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(3) & write_byte_enable(2));
+      WE   => byte_enable(0));
       --WE   => write_byte_enable(1));
 
     ram_byte0 : RAMB16_S18
@@ -399,10 +407,10 @@ INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
       ADDR => block_addr,
       CLK  => clk, 
       DI   => data_write(15 downto 0),
-      DIP  => ZERO(0 downto 0),
+      DIP  => ZERO(1 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => write_byte_enable(1) & write_byte_enable(0));
+      WE   => byte_enable(0));
       --WE   => write_byte_enable(0));
    end generate; --block0
 	

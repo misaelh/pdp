@@ -66,7 +66,7 @@ entity ddr_ctrl is
       address  : in std_logic_vector(26 downto 2);
       byte_we  : in std_logic_vector(3 downto 0);
       data_w   : in std_logic_vector(31 downto 0);
-      data_r   : out std_logic_vector(31 downto 0);
+      data_r   : out std_logic_vector(63 downto 0);
       active   : in std_logic;
       no_start : in std_logic;
       no_stop  : in std_logic;
@@ -111,6 +111,8 @@ architecture logic of ddr_ctrl is
    constant STATE_READ         : ddr_state_type := "0100";
    constant STATE_READ2        : ddr_state_type := "0101";
    constant STATE_READ3        : ddr_state_type := "0110";
+   constant STATE_READ4        : ddr_state_type := "1001";
+   constant STATE_READ5        : ddr_state_type := "1010";
    constant STATE_PRECHARGE    : ddr_state_type := "0111";
    constant STATE_PRECHARGE2   : ddr_state_type := "1000";
 
@@ -226,6 +228,9 @@ begin
             state_current := STATE_READ3;
 
          when STATE_READ3 =>
+            state_current := STATE_READ4;
+
+         when STATE_READ4 =>
             if no_stop = '0' then
                state_current := STATE_ROW_ACTIVE;
             end if;
@@ -362,7 +367,7 @@ begin
          -- end if;
       end if;
       
-      data_r <= data_read(63 downto 32);
+      data_r <= data_read;
 
       --Write data
       if write_active = '1' then
@@ -399,7 +404,7 @@ begin
       SD_WE   <= command(0);           --write_enable
 
       if active = '1' and state_current /= STATE_POWER_ON and
-         command /= COMMAND_WRITE and state_prev /= STATE_READ3 then
+         command /= COMMAND_WRITE and state_prev /= STATE_READ4 then
          pause <= '1';
       else
          pause <= '0';

@@ -18,11 +18,13 @@ architecture arch of sim_tb_top is
 	constant log_file  : string :=                  -- UART output is stored in output.txt
 	--   "UNUSED";
    "output.txt";
+	constant log_file2  : string := "cache.csv";
    
   constant sdramfile : string := "ddr_content/opcodes.srec";
   
   component plasma_top
-       generic(log_file     : string := "UNUSED";
+    generic(log_file     : string := "UNUSED";
+            log_file2     : string := "UNUSED";
                use_cache    : std_logic := '1');
        port(SYS_CLK         : in    std_logic;
             SYS_RESET       : in    std_logic;
@@ -112,7 +114,8 @@ begin
   --*************************************************************************** 
 
 	u1_plasma_top: plasma_top                                                          
-      generic map (log_file    => log_file,
+          generic map (log_file    => log_file,
+                       log_file2    => log_file2,
                    use_cache   => '1')                                           
       port map (                                                                       
         SYS_CLK         =>  sys_clk,                                                    

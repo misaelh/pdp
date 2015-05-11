@@ -52,13 +52,14 @@ architecture logic of cache is
    signal cache_tag_reg    : std_logic_vector(8 downto 0);
    signal cache_tag_out    : std_logic_vector(8 downto 0);
    signal cache_we         : std_logic;
+   signal cache_ram_data_r64 : std_logic_vector(63 downto 0);
 begin
 
    cache_proc: process(clk, reset, mem_busy, cache_address, 
       state_reg, state, state_next, 
       address_next, byte_we_next, cache_tag_in, --Stage1
       cache_tag_reg, cache_tag_out,             --Stage2
-      cpu_address) --Stage3
+      cpu_address)                              --Stage3
    begin
 
       case state_reg is
@@ -98,7 +99,7 @@ begin
       end case; --state
 
       if state = STATE_IDLE then    --check if next access in cached range
-         cache_address <= '00' & address_next(11 downto 3);
+         cache_address <= "00" & address_next(11 downto 3);
          if address_next(30 downto 21) = "0010000000" then  --first 2MB of DDR
             cache_access <= '1';
             if byte_we_next = "0000" then     --read cycle
@@ -114,7 +115,7 @@ begin
             state_next <= STATE_IDLE;
          end if;
       else
-         cache_address <= '00' & cpu_address(11 downto 3);
+         cache_address <= "00" & cpu_address(11 downto 3);
          cache_access <= '0';
          if state = STATE_MISSED then
             cache_we <= '1';                  --update cache tag
@@ -248,7 +249,9 @@ begin
          write_byte_enable => cache_ram_byte_we,
          address           => cache_ram_address,
          data_write        => cache_ram_data_w,
-         data_read         => cache_ram_data_r);
+         data_read         => cache_ram_data_r64);
+
+   cache_ram_data_r <= cache_ram_data_r64(63 downto 32) when cpu_address(2) = '1' else cache_ram_data_r64(31 downto 0);
 
 end; --logic
 

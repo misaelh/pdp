@@ -356,9 +356,9 @@ package mlite_pack is
            mem_busy       		: in  std_logic;
 		   
 		   cache_ram_enable  	: in  std_logic;
-		   cache_ram_byte_we 	: in  std_logic_vector(3 downto 0);
+		   cache_ram_byte_we 	: in  std_logic_vector(7 downto 0);
 		   cache_ram_address 	: in  std_logic_vector(31 downto 2);
-		   cache_ram_data_w  	: in  std_logic_vector(31 downto 0);
+		   cache_ram_data_w  	: in  std_logic_vector(63 downto 0);
 		   cache_ram_data_r  	: out std_logic_vector(31 downto 0);
 
            cache_access   		: out std_logic;   --access 4KB cache
@@ -370,10 +370,10 @@ package mlite_pack is
       generic(block_count : integer := 1);
       port(clk               : in std_logic;
            enable            : in std_logic;
-           write_byte_enable : in std_logic_vector(3 downto 0);
+           write_byte_enable : in std_logic_vector(7 downto 0);
            address           : in std_logic_vector(31 downto 2);
-           data_write        : in std_logic_vector(31 downto 0);
-           data_read         : out std_logic_vector(31 downto 0));
+           data_write        : in std_logic_vector(63 downto 0);
+           data_read         : out std_logic_vector(63 downto 0));
    end component; --ram
    
    component boot_ram
@@ -403,6 +403,7 @@ package mlite_pack is
    component plasma
       generic(
               log_file    : string := "UNUSED";
+              log_file2    : string := "UNUSED";
               use_cache   : std_logic := '0');
       port(clk          : in std_logic;
            reset        : in std_logic;

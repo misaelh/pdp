@@ -17,8 +17,9 @@ library unisim;
 use unisim.vcomponents.all;
 
 entity plasma_top is
-	generic(log_file    : string := "UNUSED";
-            use_cache   : std_logic := '0');
+  generic(log_file    : string := "UNUSED";
+          log_file2    : string := "UNUSED";
+          use_cache   : std_logic := '0');
     port(SYS_CLK        : in std_logic;
         SYS_RESET      : in std_logic;
         RS232_DCE_RXD : in std_logic;
@@ -61,6 +62,7 @@ architecture logic of plasma_top is
    component plasma
       generic(
               log_file    : string := "UNUSED";
+              log_file2    : string := "UNUSED";
               use_cache   : std_logic := '0');
       port(clk          : in std_logic;
            reset        : in std_logic;
@@ -70,7 +72,7 @@ architecture logic of plasma_top is
            address      : out std_logic_vector(31 downto 2);
            byte_we      : out std_logic_vector(3 downto 0); 
            data_write   : out std_logic_vector(31 downto 0);
-           data_read    : in std_logic_vector(31 downto 0);
+           data_read    : in std_logic_vector(63 downto 0);
            mem_pause_in : in std_logic;
            no_ddr_start : out std_logic;
            no_ddr_stop  : out std_logic;
@@ -88,7 +90,7 @@ architecture logic of plasma_top is
            address   : in std_logic_vector(31 downto 2);
            byte_we   : in std_logic_vector(3 downto 0);
            data_w    : in std_logic_vector(31 downto 0);
-           data_r    : out std_logic_vector(31 downto 0);
+           data_r    : out std_logic_vector(63 downto 0);
            no_start  : in std_logic;
            no_stop   : in std_logic;
            pause     : out std_logic;
@@ -114,7 +116,7 @@ architecture logic of plasma_top is
 
    signal address      : std_logic_vector(31 downto 2);
    signal data_write   : std_logic_vector(31 downto 0);
-   signal data_read    : std_logic_vector(31 downto 0);
+   signal data_read    : std_logic_vector(63 downto 0);
    signal byte_we      : std_logic_vector(3 downto 0);
    signal pause        : std_logic;
    signal no_ddr_start : std_logic;
@@ -161,6 +163,7 @@ begin  --architecture
    u1_plasma: plasma 
       generic map (
                    log_file    => log_file,
+                   log_file2    => log_file2,
                    use_cache   => use_cache)
       PORT MAP (
          clk          => clk,
