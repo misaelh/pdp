@@ -66,7 +66,7 @@ entity ddr_ctrl is
       address  : in std_logic_vector(26 downto 2);
       byte_we  : in std_logic_vector(3 downto 0);
       data_w   : in std_logic_vector(31 downto 0);
-      data_r   : out std_logic_vector(63 downto 0);
+      data_r   : out std_logic_vector(127 downto 0);
       active   : in std_logic;
       no_start : in std_logic;
       no_stop  : in std_logic;
@@ -113,6 +113,7 @@ architecture logic of ddr_ctrl is
    constant STATE_READ3        : ddr_state_type := "0110";
    constant STATE_READ4        : ddr_state_type := "1001";
    constant STATE_READ5        : ddr_state_type := "1010";
+   constant STATE_READ6        : ddr_state_type := "1011";
    constant STATE_PRECHARGE    : ddr_state_type := "0111";
    constant STATE_PRECHARGE2   : ddr_state_type := "1000";
 
@@ -127,7 +128,7 @@ architecture logic of ddr_ctrl is
    signal cke_reg      : std_logic;
    signal clk_p        : std_logic;
    signal bank_open    : std_logic_vector(3 downto 0);
-   signal data_read    : std_logic_vector(63 downto 0);
+   signal data_read    : std_logic_vector(127 downto 0);
 
 begin
    ddr_proc: process(clk, clk_p, clk_2x, reset_in, 
@@ -231,6 +232,12 @@ begin
             state_current := STATE_READ4;
 
          when STATE_READ4 =>
+            state_current := STATE_READ5;
+
+         when STATE_READ5 =>
+            state_current := STATE_READ6;
+
+         when STATE_READ6 =>
             if no_stop = '0' then
                state_current := STATE_ROW_ACTIVE;
             end if;
@@ -307,13 +314,21 @@ begin
          if DDR_DLL = "DISABLE" then  
             case cycle_count is
             when "0100"=>
-               data_read(63 downto 48) <= SD_DQ;
-            when "0101"=>
-               data_read(47 downto 32) <= SD_DQ;
-            when "0110"=>
                data_read(31 downto 16) <= SD_DQ;
-            when "0111"=>
+            when "0101"=>
                data_read(15 downto 0) <= SD_DQ;
+            when "0110"=>
+               data_read(63 downto 48) <= SD_DQ;
+            when "0111"=>
+               data_read(47 downto 32) <= SD_DQ;
+            when "1000"=>
+               data_read(95 downto 80) <= SD_DQ;
+            when "1001"=>
+               data_read(79 downto 64) <= SD_DQ;
+            when "1010"=>
+               data_read(127 downto 112) <= SD_DQ;
+            when "1011"=>
+               data_read(111 downto 96) <= SD_DQ;
             when others =>
             end case;
          end if;
@@ -348,13 +363,21 @@ begin
          if DDR_DLL = "ENABLE" then  
             case cycle_count is
             when "0100"=>
-               data_read(63 downto 48) <= SD_DQ;
-            when "0101"=>
-               data_read(47 downto 32) <= SD_DQ;
-            when "0110"=>
                data_read(31 downto 16) <= SD_DQ;
-            when "0111"=>
+            when "0101"=>
                data_read(15 downto 0) <= SD_DQ;
+            when "0110"=>
+               data_read(63 downto 48) <= SD_DQ;
+            when "0111"=>
+               data_read(47 downto 32) <= SD_DQ;
+            when "1000"=>
+               data_read(95 downto 80) <= SD_DQ;
+            when "1001"=>
+               data_read(79 downto 64) <= SD_DQ;
+            when "1010"=>
+               data_read(127 downto 112) <= SD_DQ;
+            when "1011"=>
+               data_read(111 downto 96) <= SD_DQ;
             when others =>
             end case;
          end if;
@@ -404,7 +427,7 @@ begin
       SD_WE   <= command(0);           --write_enable
 
       if active = '1' and state_current /= STATE_POWER_ON and
-         command /= COMMAND_WRITE and state_prev /= STATE_READ4 then
+         command /= COMMAND_WRITE and state_prev /= STATE_READ6 then
          pause <= '1';
       else
          pause <= '0';

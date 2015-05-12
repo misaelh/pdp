@@ -25,11 +25,11 @@ entity cache is
         cpu_address    		: in  std_logic_vector(31 downto 2);
         mem_busy       		: in  std_logic;
 		
-		cache_ram_enable  	: in  std_logic;
-		cache_ram_byte_we 	: in  std_logic_vector(7 downto 0);
-		cache_ram_address 	: in  std_logic_vector(31 downto 2);
-		cache_ram_data_w  	: in  std_logic_vector(63 downto 0);
-		cache_ram_data_r  	: out std_logic_vector(31 downto 0);
+        cache_ram_enable  	: in  std_logic;
+        cache_ram_byte_we 	: in  std_logic_vector(15 downto 0);
+        cache_ram_address 	: in  std_logic_vector(31 downto 2);
+        cache_ram_data_w  	: in  std_logic_vector(127 downto 0);
+        cache_ram_data_r  	: out std_logic_vector(31 downto 0);
 
         cache_access   		: out std_logic;   --access 4KB cache
         cache_checking 		: out std_logic;   --checking if cache hit
@@ -52,7 +52,7 @@ architecture logic of cache is
    signal cache_tag_reg    : std_logic_vector(8 downto 0);
    signal cache_tag_out    : std_logic_vector(8 downto 0);
    signal cache_we         : std_logic;
-   signal cache_ram_data_r64 : std_logic_vector(63 downto 0);
+   signal cache_ram_data_r128 : std_logic_vector(127 downto 0);
 begin
 
    cache_proc: process(clk, reset, mem_busy, cache_address, 
@@ -99,7 +99,7 @@ begin
       end case; --state
 
       if state = STATE_IDLE then    --check if next access in cached range
-         cache_address <= "00" & address_next(11 downto 3);
+         cache_address <= "000" & address_next(11 downto 4);
          if address_next(30 downto 21) = "0010000000" then  --first 2MB of DDR
             cache_access <= '1';
             if byte_we_next = "0000" then     --read cycle
@@ -115,7 +115,7 @@ begin
             state_next <= STATE_IDLE;
          end if;
       else
-         cache_address <= "00" & cpu_address(11 downto 3);
+         cache_address <= "000" & cpu_address(11 downto 4);
          cache_access <= '0';
          if state = STATE_MISSED then
             cache_we <= '1';                  --update cache tag
@@ -249,9 +249,12 @@ begin
          write_byte_enable => cache_ram_byte_we,
          address           => cache_ram_address,
          data_write        => cache_ram_data_w,
-         data_read         => cache_ram_data_r64);
+         data_read         => cache_ram_data_r128);
 
-   cache_ram_data_r <= cache_ram_data_r64(63 downto 32) when cpu_address(2) = '1' else cache_ram_data_r64(31 downto 0);
+   cache_ram_data_r <= cache_ram_data_r128(31 downto 0)   when cpu_address(3 downto 2) = "00" else
+                       cache_ram_data_r128(63 downto 32)  when cpu_address(3 downto 2) = "01" else
+                       cache_ram_data_r128(95 downto 64)  when cpu_address(3 downto 2) = "10" else
+                       cache_ram_data_r128(127 downto 96) when cpu_address(3 downto 2) = "11";
 
 end; --logic
 

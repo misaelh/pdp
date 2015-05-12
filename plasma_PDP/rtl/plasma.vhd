@@ -52,7 +52,7 @@ entity plasma is
         address      : out std_logic_vector(31 downto 2);
         byte_we      : out std_logic_vector(3 downto 0); 
         data_write   : out std_logic_vector(31 downto 0);
-        data_read    : in std_logic_vector(63 downto 0);
+        data_read    : in std_logic_vector(127 downto 0);
         mem_pause_in : in std_logic;
         no_ddr_start : out std_logic;
         no_ddr_stop  : out std_logic;
@@ -89,9 +89,9 @@ architecture logic of plasma is
    signal counter_hi_reg    : std_logic_vector(39 downto 32);
 
    signal cache_ram_enable  : std_logic;
-   signal cache_ram_byte_we : std_logic_vector(7 downto 0);
+   signal cache_ram_byte_we : std_logic_vector(15 downto 0);
    signal cache_ram_address : std_logic_vector(31 downto 2);
-   signal cache_ram_data_w  : std_logic_vector(63 downto 0);
+   signal cache_ram_data_w  : std_logic_vector(127 downto 0);
    signal cache_ram_data_r  : std_logic_vector(31 downto 0);
    
    signal boot_ram_enable   : std_logic;
@@ -211,7 +211,7 @@ begin  --architecture
          if cache_checking = '1' then
             cpu_data_r <= cache_ram_data_r; --cache
          else
-            cpu_data_r <= data_read(63 downto 32); --DDR
+            cpu_data_r <= data_read(31 downto 0); --DDR
          end if;
       when "010" =>         --misc
          case cpu_address(6 downto 4) is
@@ -271,27 +271,41 @@ begin  --architecture
       if cache_access = '1' then    --Check if cache hit or write through
          cache_ram_enable <= '1';
          cache_ram_address(31 downto 2) <= ZERO(31 downto 12) & address_next(11 downto 2);
-	 if address_next(2) = '1' then
-            cache_ram_byte_we <= byte_we_next & "0000";
-            cache_ram_data_w <= cpu_data_w & ZERO(31 downto 0);
-	 else
-            cache_ram_byte_we <= "0000" & byte_we_next;
-            cache_ram_data_w <= ZERO(31 downto 0) & cpu_data_w;
-	end if;
+         case address_next(3 downto 2) is
+           when "00" =>
+             cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
+             cache_ram_data_w  <= ZERO(31 downto 0) & ZERO(31 downto 0) & ZERO(31 downto 0) & cpu_data_w;
+           when "01" =>
+             cache_ram_byte_we <= ZERO(7 downto 0) & byte_we_next & ZERO(3 downto 0);
+             cache_ram_data_w  <= ZERO(31 downto 0) & ZERO(31 downto 0) & cpu_data_w & ZERO(31 downto 0);
+           when "10" =>
+             cache_ram_byte_we <= ZERO(3 downto 0) & byte_we_next & ZERO(7 downto 0);
+             cache_ram_data_w  <= ZERO(31 downto 0) & cpu_data_w & ZERO(31 downto 0) & ZERO(31 downto 0);
+           when "11" =>
+             cache_ram_byte_we <= byte_we_next & ZERO(11 downto 0);
+             cache_ram_data_w  <= cpu_data_w & ZERO(31 downto 0) & ZERO(31 downto 0) & ZERO(31 downto 0);
+           when others =>
+         end case;
       elsif cache_miss = '1' then  --Update cache after cache miss
          cache_ram_enable <= '1';
-         cache_ram_byte_we <= "11111111";
+         cache_ram_byte_we <= ONES(15 downto 0);
          cache_ram_address(31 downto 2) <= ZERO(31 downto 12) & address_next(11 downto 2);
-	 if address_next(2) = '1' then
-            cache_ram_data_w <= data_read;
-	 else
-            cache_ram_data_w <= data_read(31 downto 0) & data_read(63 downto 32);
-         end if;
+         case address_next(3 downto 2) is
+           when "00" =>
+             cache_ram_data_w <= data_read;
+           when "01" =>
+             cache_ram_data_w <= data_read(95 downto 0) & data_read(127 downto 96);
+           when "10" =>
+             cache_ram_data_w <= data_read(63 downto 0) & data_read(127 downto 64);
+           when "11" =>
+             cache_ram_data_w <= data_read(31 downto 0) & data_read(127 downto 32);
+           when others =>
+         end case;
       else                         --Disable cache ram when Normal non-cache access
          cache_ram_enable <= '0';
-         cache_ram_byte_we <= byte_we_next & byte_we_next;
+         cache_ram_byte_we <= byte_we_next & byte_we_next & byte_we_next & byte_we_next;
          cache_ram_address(31 downto 2) <= address_next(31 downto 2);
-         cache_ram_data_w <= cpu_data_w & cpu_data_w;
+         cache_ram_data_w <= cpu_data_w & cpu_data_w & cpu_data_w & cpu_data_w;
       end if;
    end process;
 

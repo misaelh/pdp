@@ -348,32 +348,32 @@ package mlite_pack is
    end component;
 
    component cache
-      port(clk            		: in  std_logic;
-           reset          		: in  std_logic;
-           address_next   		: in  std_logic_vector(31 downto 2);
-           byte_we_next   		: in  std_logic_vector(3 downto 0);
-           cpu_address    		: in  std_logic_vector(31 downto 2);
-           mem_busy       		: in  std_logic;
+      port(clk               : in  std_logic;
+           reset             : in  std_logic;
+           address_next      : in  std_logic_vector(31 downto 2);
+           byte_we_next      : in  std_logic_vector(3 downto 0);
+           cpu_address       : in  std_logic_vector(31 downto 2);
+           mem_busy          : in  std_logic;
 		   
-		   cache_ram_enable  	: in  std_logic;
-		   cache_ram_byte_we 	: in  std_logic_vector(7 downto 0);
-		   cache_ram_address 	: in  std_logic_vector(31 downto 2);
-		   cache_ram_data_w  	: in  std_logic_vector(63 downto 0);
-		   cache_ram_data_r  	: out std_logic_vector(31 downto 0);
+           cache_ram_enable  : in  std_logic;
+           cache_ram_byte_we : in  std_logic_vector(15 downto 0);
+           cache_ram_address : in  std_logic_vector(31 downto 2);
+           cache_ram_data_w  : in  std_logic_vector(127 downto 0);
+           cache_ram_data_r  : out std_logic_vector(31 downto 0);
 
-           cache_access   		: out std_logic;   --access 4KB cache
-           cache_checking 		: out std_logic;   --checking if cache hit
-           cache_miss     		: out std_logic);  --cache miss
+           cache_access      : out std_logic;   --access 4KB cache
+           cache_checking    : out std_logic;   --checking if cache hit
+           cache_miss        : out std_logic);  --cache miss
    end component; --cache
 
    component cache_ram
       generic(block_count : integer := 1);
       port(clk               : in std_logic;
            enable            : in std_logic;
-           write_byte_enable : in std_logic_vector(7 downto 0);
+           write_byte_enable : in std_logic_vector(15 downto 0);
            address           : in std_logic_vector(31 downto 2);
-           data_write        : in std_logic_vector(63 downto 0);
-           data_read         : out std_logic_vector(63 downto 0));
+           data_write        : in std_logic_vector(127 downto 0);
+           data_read         : out std_logic_vector(127 downto 0));
    end component; --ram
    
    component boot_ram
@@ -413,7 +413,7 @@ package mlite_pack is
            address      : out std_logic_vector(31 downto 2);
            byte_we      : out std_logic_vector(3 downto 0); 
            data_write   : out std_logic_vector(31 downto 0);
-           data_read    : in std_logic_vector(31 downto 0);
+           data_read    : in std_logic_vector(127 downto 0);
            mem_pause_in : in std_logic;
            no_ddr_start : out std_logic;
            no_ddr_stop  : out std_logic;
@@ -430,7 +430,7 @@ package mlite_pack is
            address  : in std_logic_vector(25 downto 2);
            byte_we  : in std_logic_vector(3 downto 0);
            data_w   : in std_logic_vector(31 downto 0);
-           data_r   : out std_logic_vector(31 downto 0);
+           data_r   : out std_logic_vector(127 downto 0);
            active   : in std_logic;
            no_start : in std_logic;
            no_stop  : in std_logic;

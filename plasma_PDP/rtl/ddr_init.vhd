@@ -25,12 +25,12 @@ architecture logic of ddr_init is
     constant PRECHARGE_ALL  : command_type := "000100000100000000000000001000";         -- (0x400 << 12) | (0 << 10) | (2 << 4),  //A10=1; PRECHARGE ALL="010"
     constant ENABLE_DLL     : command_type := "000100000000000000000100000000";         -- (0x000 << 12) | (1 << 10) | (0 << 4),  //enable DLL; BA="01"; LMR="000"
     constant DISABLE_DLL    : command_type := "000100000000000000010100000000";         -- (0x001 << 12) | (1 << 10) | (0 << 4),  //disable DLL; BA="01"; LMR="000"
-    constant RESET_DLL      : command_type := "000100000001001000100000000000";         -- (0x122 << 12) | (0 << 10) | (0 << 4),  //reset DLL, CL=2, BL=2; LMR="000"
---    constant RESET_DLL      : command_type := "000100000001001000010000000000";         -- (0x121 << 12) | (0 << 10) | (0 << 4),  //reset DLL, CL=2, BL=2; LMR="000"
+    constant RESET_DLL      : command_type := "000100000001001000110000000000";         -- (0x123 << 12) | (0 << 10) | (0 << 4),  //reset DLL, CL=2, BL=8; LMR="000"
+--  constant RESET_DLL      : command_type := "000100000001001000010000000000";         -- (0x121 << 12) | (0 << 10) | (0 << 4),  //reset DLL, CL=2, BL=2; LMR="000"
     constant AUTO_REFRESH   : command_type := "000100000000000000000000000100";         -- (0x000 << 12) | (0 << 10) | (1 << 4),  //AUTO REFRESH="001"
-    constant CLEAR_DLL      : command_type := "000100000000001000100000000000";         -- (0x022 << 12) | (0 << 10) | (0 << 4)   //clear DLL, CL=2, BL=2; LMR="000"  
---    constant CLEAR_DLL      : command_type := "000100000000001000010000000000";         -- (0x021 << 12) | (0 << 10) | (0 << 4)   //clear DLL, CL=2, BL=2; LMR="000"  
-    constant ACTIVE_DDR		 : command_type := "000100000000000000000000000000";
+    constant CLEAR_DLL      : command_type := "000100000000001000110000000000";         -- (0x023 << 12) | (0 << 10) | (0 << 4)   //clear DLL, CL=2, BL=8; LMR="000"  
+--  constant CLEAR_DLL      : command_type := "000100000000001000010000000000";         -- (0x021 << 12) | (0 << 10) | (0 << 4)   //clear DLL, CL=2, BL=2; LMR="000"  
+    constant ACTIVE_DDR     : command_type := "000100000000000000000000000000";
 	 
     subtype state_type is std_logic_vector(3 downto 0);
     constant IDLE       : state_type := "0000";
