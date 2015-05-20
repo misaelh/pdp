@@ -50,3 +50,4 @@ plasma_PDP/sim/grlib/_info
 *.projectmgr
 *.xmsgs
 *.lst
+plasma_PDP/sim/wlft*
