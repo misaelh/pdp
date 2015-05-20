@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.32 secs
+Total CPU time to Xst completion: 0.45 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.32 secs
+Total CPU time to Xst completion: 0.45 secs
  
 --> Reading design: top_ml410.prj
 
@@ -107,72 +107,51 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "E:/plasma_PDP/rtl/mlite_pack.vhd" in Library work.
-Package <mlite_pack> compiled.
-Package body <mlite_pack> compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/cache_ram.vhd" in Library work.
-Entity <cache_ram> compiled.
-Entity <cache_ram> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/pc_next.vhd" in Library work.
-Entity <pc_next> compiled.
-Entity <pc_next> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/mem_ctrl.vhd" in Library work.
-Entity <mem_ctrl> compiled.
-Entity <mem_ctrl> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/control.vhd" in Library work.
-Entity <control> compiled.
-Entity <control> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/reg_bank.vhd" in Library work.
-Entity <reg_bank> compiled.
-Entity <reg_bank> (Architecture <ram_block>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/bus_mux.vhd" in Library work.
-Entity <bus_mux> compiled.
-Entity <bus_mux> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/alu.vhd" in Library work.
-Entity <alu> compiled.
-Entity <alu> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/shifter.vhd" in Library work.
-Entity <shifter> compiled.
-Entity <shifter> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/mult.vhd" in Library work.
-Entity <mult> compiled.
-Entity <mult> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/pipeline.vhd" in Library work.
-Entity <pipeline> compiled.
-Entity <pipeline> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/ddr_init.vhd" in Library work.
-Entity <ddr_init> compiled.
-Entity <ddr_init> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/ddr_ctrl.vhd" in Library work.
-Entity <ddr_ctrl> compiled.
-Entity <ddr_ctrl> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/mlite_cpu.vhd" in Library work.
-Entity <mlite_cpu> compiled.
-Entity <mlite_cpu> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/cache.vhd" in Library work.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/mlite_pack.vhd" in Library work.
+Architecture mlite_pack of Entity mlite_pack is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/cache_ram.vhd" in Library work.
+Architecture logic of Entity cache_ram is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/pc_next.vhd" in Library work.
+Architecture logic of Entity pc_next is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/mem_ctrl.vhd" in Library work.
+Architecture logic of Entity mem_ctrl is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/control.vhd" in Library work.
+Architecture logic of Entity control is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/reg_bank.vhd" in Library work.
+Architecture ram_block of Entity reg_bank is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/bus_mux.vhd" in Library work.
+Architecture logic of Entity bus_mux is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/alu.vhd" in Library work.
+Architecture logic of Entity alu is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/shifter.vhd" in Library work.
+Architecture logic of Entity shifter is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/mult.vhd" in Library work.
+Architecture logic of Entity mult is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/pipeline.vhd" in Library work.
+Architecture logic of Entity pipeline is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/ddr_init.vhd" in Library work.
+Architecture logic of Entity ddr_init is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/ddr_ctrl.vhd" in Library work.
+Architecture logic of Entity ddr_ctrl is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/mlite_cpu.vhd" in Library work.
+Architecture logic of Entity mlite_cpu is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/cache.vhd" in Library work.
 Entity <cache> compiled.
 Entity <cache> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/boot_ram.vhd" in Library work.
-Entity <boot_ram> compiled.
-Entity <boot_ram> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/uart.vhd" in Library work.
-Entity <uart> compiled.
-Entity <uart> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/clk_gen.vhd" in Library work.
-Entity <clk_gen> compiled.
-Entity <clk_gen> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/plasma.vhd" in Library work.
-Entity <plasma> compiled.
-Entity <plasma> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/ddr_ctrl_top.vhd" in Library work.
-Entity <ddr_ctrl_top> compiled.
-Entity <ddr_ctrl_top> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/plasma_top.vhd" in Library work.
-Entity <plasma_top> compiled.
-Entity <plasma_top> (Architecture <logic>) compiled.
-Compiling vhdl file "E:/plasma_PDP/rtl/top_ml410.vhd" in Library work.
-Entity <top_ml410> compiled.
-Entity <top_ml410> (Architecture <logic>) compiled.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/boot_ram.vhd" in Library work.
+Architecture logic of Entity boot_ram is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/uart.vhd" in Library work.
+Architecture logic of Entity uart is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/clk_gen.vhd" in Library work.
+Architecture logic of Entity clk_gen is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/plasma.vhd" in Library work.
+Architecture logic of Entity plasma is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/ddr_ctrl_top.vhd" in Library work.
+Architecture logic of Entity ddr_ctrl_top is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/plasma_top.vhd" in Library work.
+Architecture logic of Entity plasma_top is up to date.
+Compiling vhdl file "E:/pdp/plasma_PDP/rtl/top_ml410.vhd" in Library work.
+Architecture logic of Entity top_ml410 is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -425,7 +404,7 @@ Analyzing Entity <reg_bank> in library <work> (Architecture <ram_block>).
 Entity <reg_bank> analyzed. Unit <reg_bank> generated.
 
 Analyzing Entity <bus_mux> in library <work> (Architecture <logic>).
-INFO:Xst:1561 - "E:/plasma_PDP/rtl/bus_mux.vhd" line 82: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "E:/pdp/plasma_PDP/rtl/bus_mux.vhd" line 82: Mux is complete : default of case is discarded
 Entity <bus_mux> analyzed. Unit <bus_mux> generated.
 
 Analyzing generic Entity <alu> in library <work> (Architecture <logic>).
@@ -444,7 +423,7 @@ Analyzing Entity <pipeline> in library <work> (Architecture <logic>).
 Entity <pipeline> analyzed. Unit <pipeline> generated.
 
 Analyzing Entity <cache> in library <work> (Architecture <logic>).
-INFO:Xst:1561 - "E:/plasma_PDP/rtl/cache.vhd" line 92: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "E:/pdp/plasma_PDP/rtl/cache.vhd" line 93: Mux is complete : default of case is discarded
     Set user-defined property "INIT =  000000FFF" for instance <cache_tag> in unit <cache>.
     Set user-defined property "INITP_00 =  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" for instance <cache_tag> in unit <cache>.
     Set user-defined property "INITP_01 =  FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF" for instance <cache_tag> in unit <cache>.
@@ -1146,7 +1125,7 @@ Entity <ddr_init> analyzed. Unit <ddr_init> generated.
 Analyzing generic Entity <ddr_ctrl> in library <work> (Architecture <logic>).
 	DDR_DLL = "DISABLE"
 	memory_size = 32
-WARNING:Xst:795 - "E:/plasma_PDP/rtl/ddr_ctrl.vhd" line 328: Size of operands are different : result is <false>.
+WARNING:Xst:795 - "E:/pdp/plasma_PDP/rtl/ddr_ctrl.vhd" line 365: Size of operands are different : result is <false>.
 Entity <ddr_ctrl> analyzed. Unit <ddr_ctrl> generated.
 
 
@@ -1157,7 +1136,7 @@ Entity <ddr_ctrl> analyzed. Unit <ddr_ctrl> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <uart>.
-    Related source file is "E:/plasma_PDP/rtl/uart.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/uart.vhd".
     Found 4-bit down counter for signal <bits_read_reg>.
     Found 4-bit down counter for signal <bits_write_reg>.
     Found 8-bit register for signal <data_read_reg>.
@@ -1175,7 +1154,7 @@ Unit <uart> synthesized.
 
 
 Synthesizing Unit <pc_next>.
-    Related source file is "E:/plasma_PDP/rtl/pc_next.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/pc_next.vhd".
     Found 1-bit xor2 for signal <pc_inc$xor0000> created at line 507.
     Found 1-bit xor2 for signal <pc_inc$xor0001> created at line 507.
     Found 1-bit xor2 for signal <pc_inc$xor0002> created at line 507.
@@ -1212,7 +1191,7 @@ Unit <pc_next> synthesized.
 
 
 Synthesizing Unit <mem_ctrl>.
-    Related source file is "E:/plasma_PDP/rtl/mem_ctrl.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/mem_ctrl.vhd".
     Found 30-bit register for signal <address_reg>.
     Found 4-bit register for signal <byte_we_reg>.
     Found 1-bit 4-to-1 multiplexer for signal <data_read_var_7$mux0000> created at line 92.
@@ -1227,7 +1206,7 @@ Unit <mem_ctrl> synthesized.
 
 
 Synthesizing Unit <control>.
-    Related source file is "E:/plasma_PDP/rtl/control.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/control.vhd".
     Found 16x4-bit ROM for signal <mem_source_out$mux0000>.
     Found 32x2-bit ROM for signal <b_source_out$mux0000>.
     Summary:
@@ -1236,7 +1215,7 @@ Unit <control> synthesized.
 
 
 Synthesizing Unit <bus_mux>.
-    Related source file is "E:/plasma_PDP/rtl/bus_mux.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/bus_mux.vhd".
     Found 32-bit 4-to-1 multiplexer for signal <b_out>.
     Found 1-bit 8-to-1 multiplexer for signal <take_branch>.
     Found 32-bit 4-to-1 multiplexer for signal <a_out>.
@@ -1248,7 +1227,7 @@ Unit <bus_mux> synthesized.
 
 
 Synthesizing Unit <alu>.
-    Related source file is "E:/plasma_PDP/rtl/alu.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/alu.vhd".
     Found 32-bit xor2 for signal <c_alu$xor0000> created at line 36.
     Found 1-bit xor2 for signal <less_than$xor0000> created at line 32.
     Found 1-bit xor3 for signal <result_11$xor0000> created at line 476.
@@ -1290,7 +1269,7 @@ Unit <alu> synthesized.
 
 
 Synthesizing Unit <shifter>.
-    Related source file is "E:/plasma_PDP/rtl/shifter.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/shifter.vhd".
     Found 32-bit 4-to-1 multiplexer for signal <c_shift>.
     Summary:
 	inferred  32 Multiplexer(s).
@@ -1298,7 +1277,7 @@ Unit <shifter> synthesized.
 
 
 Synthesizing Unit <mult>.
-    Related source file is "E:/plasma_PDP/rtl/mult.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/mult.vhd".
     Found 1-bit xor2 for signal <a_neg$xor0000> created at line 493.
     Found 1-bit xor2 for signal <a_neg$xor0001> created at line 493.
     Found 1-bit xor2 for signal <a_neg$xor0002> created at line 493.
@@ -1476,7 +1455,7 @@ Unit <mult> synthesized.
 
 
 Synthesizing Unit <pipeline>.
-    Related source file is "E:/plasma_PDP/rtl/pipeline.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/pipeline.vhd".
     Found 2-bit register for signal <shift_funcD>.
     Found 32-bit register for signal <a_busD>.
     Found 4-bit register for signal <alu_funcD>.
@@ -1495,32 +1474,32 @@ Unit <pipeline> synthesized.
 
 
 Synthesizing Unit <ddr_init>.
-    Related source file is "E:/plasma_PDP/rtl/ddr_init.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/ddr_init.vhd".
     Using one-hot encoding for signal <init_step>.
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 64 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 66 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <init_step> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 64 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 66 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <init_step> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 64 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 66 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <init_step> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 64 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 66 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <init_step> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 64 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <init_step> of Case statement line 66 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <init_step> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-    Found 8-bit comparator equal for signal <cnt_done$cmp_eq0000> created at line 182.
+    Found 8-bit comparator equal for signal <cnt_done$cmp_eq0000> created at line 184.
     Found 12-bit register for signal <init_step>.
     Found 8-bit register for signal <wait_cnt>.
-    Found 8-bit adder for signal <wait_cnt$addsub0000> created at line 173.
+    Found 8-bit adder for signal <wait_cnt$addsub0000> created at line 175.
     Summary:
 	inferred   8 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
@@ -1529,14 +1508,14 @@ Unit <ddr_init> synthesized.
 
 
 Synthesizing Unit <ddr_ctrl>.
-    Related source file is "E:/plasma_PDP/rtl/ddr_ctrl.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/ddr_ctrl.vhd".
 WARNING:Xst:647 - Input <address<26:25>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found finite state machine <FSM_0> for signal <state_prev>.
     -----------------------------------------------------------------------
-    | States             | 9                                              |
-    | Transitions        | 24                                             |
+    | States             | 12                                             |
+    | Transitions        | 27                                             |
     | Inputs             | 8                                              |
-    | Outputs            | 17                                             |
+    | Outputs            | 23                                             |
     | Clock              | clk                       (rising_edge)        |
     | Reset              | reset_in                  (positive)           |
     | Reset type         | asynchronous                                   |
@@ -1550,24 +1529,25 @@ WARNING:Xst:647 - Input <address<26:25>> is never used. This port will be preser
     Found 1-bit tristate buffer for signal <SD_LDQS>.
     Found 1-bit tristate buffer for signal <SD_UDM>.
     Found 52-bit register for signal <address_row>.
-    Found 13-bit 4-to-1 multiplexer for signal <address_row$mux0000> created at line 205.
+    Found 13-bit 4-to-1 multiplexer for signal <address_row$mux0000> created at line 210.
     Found 4-bit register for signal <bank_open>.
-    Found 1-bit 4-to-1 multiplexer for signal <bank_open$mux0000> created at line 203.
-    Found 6-bit register for signal <byte_we_reg2>.
+    Found 1-bit 4-to-1 multiplexer for signal <bank_open$mux0000> created at line 208.
+    Found 18-bit register for signal <byte_we_reg2>.
     Found 1-bit register for signal <cke_reg>.
     Found 1-bit register for signal <clk_p>.
-    Found 3-bit up counter for signal <cycle_count>.
-    Found 3-bit register for signal <cycle_count2>.
-    Found 32-bit register for signal <data_read>.
-    Found 48-bit register for signal <data_write2>.
+    Found 4-bit up counter for signal <cycle_count>.
+    Found 4-bit register for signal <cycle_count2>.
+    Found 128-bit register for signal <data_read>.
+    Found 1-bit register for signal <data_w_load>.
+    Found 144-bit register for signal <data_write2>.
     Found 8-bit up counter for signal <refresh_cnt>.
-    Found 13-bit comparator not equal for signal <state_prev$cmp_ne0001> created at line 205.
+    Found 13-bit comparator not equal for signal <state_prev$cmp_ne0001> created at line 210.
     Found 1-bit register for signal <write_active>.
     Found 1-bit register for signal <write_prev>.
     Summary:
 	inferred   1 Finite State Machine(s).
 	inferred   2 Counter(s).
-	inferred 149 D-type flip-flop(s).
+	inferred 355 D-type flip-flop(s).
 	inferred   1 Comparator(s).
 	inferred  14 Multiplexer(s).
 	inferred  20 Tristate(s).
@@ -1575,7 +1555,7 @@ Unit <ddr_ctrl> synthesized.
 
 
 Synthesizing Unit <clk_gen>.
-    Related source file is "E:/plasma_PDP/rtl/clk_gen.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/clk_gen.vhd".
     Found 1-bit register for signal <clk_bufg_in>.
     Summary:
 	inferred   1 D-type flip-flop(s).
@@ -1583,13 +1563,13 @@ Unit <clk_gen> synthesized.
 
 
 Synthesizing Unit <ddr_ctrl_top>.
-    Related source file is "E:/plasma_PDP/rtl/ddr_ctrl_top.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/ddr_ctrl_top.vhd".
 WARNING:Xst:646 - Signal <address_ddr<27>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <ddr_ctrl_top> synthesized.
 
 
 Synthesizing Unit <boot_ram>.
-    Related source file is "E:/plasma_PDP/rtl/boot_ram.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/boot_ram.vhd".
 WARNING:Xst:647 - Input <address<31:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:646 - Signal <block_enable<7:1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1781 - Signal <block_do<7:1>> is used but never assigned. Tied to default value.
@@ -1602,7 +1582,7 @@ Unit <boot_ram> synthesized.
 
 
 Synthesizing Unit <reg_bank>.
-    Related source file is "E:/plasma_PDP/rtl/reg_bank.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/reg_bank.vhd".
 WARNING:Xst:646 - Signal <no_connect> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 1-bit register for signal <intr_enable_reg>.
     Summary:
@@ -1611,20 +1591,21 @@ Unit <reg_bank> synthesized.
 
 
 Synthesizing Unit <cache_ram>.
-    Related source file is "E:/plasma_PDP/rtl/cache_ram.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/cache_ram.vhd".
 WARNING:Xst:647 - Input <address<31:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <address<3:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:646 - Signal <block_enable<7:1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1781 - Signal <block_do<7:1>> is used but never assigned. Tied to default value.
-    Found 32-bit 8-to-1 multiplexer for signal <data_read>.
+    Found 128-bit 8-to-1 multiplexer for signal <data_read>.
     Found 3-bit register for signal <block_sel_buf>.
     Summary:
 	inferred   3 D-type flip-flop(s).
-	inferred  32 Multiplexer(s).
+	inferred 128 Multiplexer(s).
 Unit <cache_ram> synthesized.
 
 
 Synthesizing Unit <mlite_cpu>.
-    Related source file is "E:/plasma_PDP/rtl/mlite_cpu.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/mlite_cpu.vhd".
     Found 1-bit register for signal <intr_signal>.
     Found 4-bit up counter for signal <reset_reg>.
     Summary:
@@ -1634,24 +1615,29 @@ Unit <mlite_cpu> synthesized.
 
 
 Synthesizing Unit <cache>.
-    Related source file is "E:/plasma_PDP/rtl/cache.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/cache.vhd".
 WARNING:Xst:647 - Input <cpu_address<31:12>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <address_next<31>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <address_next<3:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Using one-hot encoding for signal <state>.
     Using one-hot encoding for signal <state_reg>.
-    Found 9-bit comparator not equal for signal <cache_miss$cmp_ne0000> created at line 71.
+    Found 32-bit 4-to-1 multiplexer for signal <cache_ram_data_r>.
+    Found 9-bit comparator not equal for signal <cache_miss$cmp_ne0000> created at line 72.
     Found 9-bit register for signal <cache_tag_reg>.
     Found 4-bit register for signal <state_reg>.
     Summary:
 	inferred   9 D-type flip-flop(s).
 	inferred   1 Comparator(s).
+	inferred  32 Multiplexer(s).
 Unit <cache> synthesized.
 
 
 Synthesizing Unit <plasma>.
-    Related source file is "E:/plasma_PDP/rtl/plasma.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/plasma.vhd".
 WARNING:Xst:646 - Signal <cpu_address<1:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Found 32-bit 4-to-1 multiplexer for signal <cache_ram_data_w>.
+    Found 128-bit 4-to-1 multiplexer for signal <cache_ram_data_w>.
+    Found 128-bit 4-to-1 multiplexer for signal <cache_ram_data_w$mux0003>.
+    Found 128-bit 4-to-1 multiplexer for signal <cache_ram_data_w$mux0004>.
     Found 8-bit register for signal <counter_hi_reg>.
     Found 40-bit register for signal <counter_reg>.
     Found 1-bit xor2 for signal <counter_reg$xor0000> created at line 521.
@@ -1697,18 +1683,18 @@ WARNING:Xst:646 - Signal <cpu_address<1:0>> is assigned but never used. This unc
     Found 1-bit xor2 for signal <result_30$xor0000> created at line 521.
     Summary:
 	inferred  88 D-type flip-flop(s).
-	inferred  32 Multiplexer(s).
+	inferred 384 Multiplexer(s).
 Unit <plasma> synthesized.
 
 
 Synthesizing Unit <plasma_top>.
-    Related source file is "E:/plasma_PDP/rtl/plasma_top.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/plasma_top.vhd".
 WARNING:Xst:646 - Signal <gpio0_out<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <plasma_top> synthesized.
 
 
 Synthesizing Unit <top_ml410>.
-    Related source file is "E:/plasma_PDP/rtl/top_ml410.vhd".
+    Related source file is "E:/pdp/plasma_PDP/rtl/top_ml410.vhd".
 WARNING:Xst:647 - Input <fpga_0_RS232_Uart_1_ctsN_pin> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <fpga_0_DDR_CLK_FB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 Unit <top_ml410> synthesized.
@@ -1727,21 +1713,20 @@ Macro Statistics
  8-bit adder                                           : 1
 # Counters                                             : 7
  10-bit down counter                                   : 1
- 3-bit up counter                                      : 1
  4-bit down counter                                    : 2
- 4-bit up counter                                      : 1
+ 4-bit up counter                                      : 2
  7-bit updown counter                                  : 1
  8-bit up counter                                      : 1
-# Registers                                            : 219
- 1-bit register                                        : 185
+# Registers                                            : 424
+ 1-bit register                                        : 390
  10-bit register                                       : 1
  12-bit register                                       : 1
  13-bit register                                       : 4
  2-bit register                                        : 1
- 3-bit register                                        : 4
+ 3-bit register                                        : 3
  30-bit register                                       : 2
  32-bit register                                       : 8
- 4-bit register                                        : 4
+ 4-bit register                                        : 5
  40-bit register                                       : 1
  6-bit register                                        : 2
  8-bit register                                        : 4
@@ -1752,12 +1737,14 @@ Macro Statistics
  6-bit comparator not equal                            : 2
  8-bit comparator equal                                : 1
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 42
+# Multiplexers                                         : 45
  1-bit 4-to-1 multiplexer                              : 34
  1-bit 8-to-1 multiplexer                              : 1
+ 128-bit 4-to-1 multiplexer                            : 3
+ 128-bit 8-to-1 multiplexer                            : 1
  13-bit 4-to-1 multiplexer                             : 1
  32-bit 4-to-1 multiplexer                             : 4
- 32-bit 8-to-1 multiplexer                             : 2
+ 32-bit 8-to-1 multiplexer                             : 1
 # Tristates                                            : 5
  1-bit tristate buffer                                 : 4
  16-bit tristate buffer                                : 1
@@ -1773,20 +1760,119 @@ Macro Statistics
 =========================================================================
 
 Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <u1_plasma_top/u2_ddr/u2_ddr/state_prev/FSM> on signal <state_prev[1:9]> with one-hot encoding.
---------------------
+Optimizing FSM <u1_plasma_top/u2_ddr/u2_ddr/state_prev/FSM> on signal <state_prev[1:12]> with one-hot encoding.
+-----------------------
  State | Encoding
---------------------
- 0000  | 000000001
- 0001  | 000000010
- 0010  | 000001000
- 0011  | 000010000
- 0100  | 000100000
- 0101  | 001000000
- 0110  | 010000000
- 0111  | 000000100
- 1000  | 100000000
---------------------
+-----------------------
+ 0000  | 000000000001
+ 0001  | 000000000010
+ 0010  | 000000001000
+ 0011  | 000000010000
+ 0100  | 000000100000
+ 0101  | 000001000000
+ 0110  | 000010000000
+ 0111  | 000000000100
+ 1000  | 100000000000
+ 1001  | 000100000000
+ 1010  | 001000000000
+ 1011  | 010000000000
+-----------------------
+WARNING:Xst:1710 - FF/Latch <data_write2_73> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_67> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_72> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_66> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_65> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_71> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_70> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_64> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_59> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_58> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_63> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_57> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_62> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_61> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_56> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_55> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_60> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_49> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_54> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_48> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_53> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_47> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_52> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_51> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_95> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_94> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_89> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_93> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_88> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_92> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_87> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_91> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_86> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_90> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_85> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_79> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_84> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_83> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_78> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_82> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_77> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_81> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_76> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_80> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_75> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_69> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_74> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_68> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_24> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_23> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_18> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_22> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_17> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_21> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_16> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_20> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_15> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_14> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_13> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_12> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_11> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_10> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_9> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_8> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_7> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_6> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_5> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_4> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_3> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_2> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_1> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_0> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_46> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_45> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_50> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_39> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_44> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_38> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_43> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_37> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_42> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_36> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_41> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_35> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_40> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_29> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_34> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_28> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_33> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_27> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_32> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_26> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_31> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_25> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_30> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_write2_19> (without init value) has a constant value of 0 in block <u2_ddr>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <address_reg_25> of sequential type is unconnected in block <u2_mem_ctrl>.
 WARNING:Xst:2677 - Node <address_reg_26> of sequential type is unconnected in block <u2_mem_ctrl>.
 WARNING:Xst:2677 - Node <address_reg_27> of sequential type is unconnected in block <u2_mem_ctrl>.
@@ -1805,25 +1891,26 @@ Macro Statistics
  8-bit adder                                           : 1
 # Counters                                             : 7
  10-bit down counter                                   : 1
- 3-bit up counter                                      : 1
  4-bit down counter                                    : 2
- 4-bit up counter                                      : 1
+ 4-bit up counter                                      : 2
  7-bit updown counter                                  : 1
  8-bit up counter                                      : 1
-# Registers                                            : 707
- Flip-Flops                                            : 707
+# Registers                                            : 913
+ Flip-Flops                                            : 913
 # Comparators                                          : 6
  13-bit comparator not equal                           : 1
  32-bit comparator equal                               : 1
  6-bit comparator not equal                            : 2
  8-bit comparator equal                                : 1
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 42
+# Multiplexers                                         : 45
  1-bit 4-to-1 multiplexer                              : 34
  1-bit 8-to-1 multiplexer                              : 1
+ 128-bit 4-to-1 multiplexer                            : 3
+ 128-bit 8-to-1 multiplexer                            : 1
  13-bit 4-to-1 multiplexer                             : 1
  32-bit 4-to-1 multiplexer                             : 4
- 32-bit 8-to-1 multiplexer                             : 2
+ 32-bit 8-to-1 multiplexer                             : 1
 # Xors                                                 : 262
  1-bit xor2                                            : 197
  1-bit xor3                                            : 64
@@ -1838,10 +1925,10 @@ INFO:Xst:1901 - Instance block0.ram_byte3 in unit boot_ram of type RAMB16_S9 has
 INFO:Xst:1901 - Instance block0.ram_byte2 in unit boot_ram of type RAMB16_S9 has been replaced by RAMB16
 INFO:Xst:1901 - Instance block0.ram_byte1 in unit boot_ram of type RAMB16_S9 has been replaced by RAMB16
 INFO:Xst:1901 - Instance block0.ram_byte0 in unit boot_ram of type RAMB16_S9 has been replaced by RAMB16
-INFO:Xst:1901 - Instance block0.ram_byte3 in unit cache_ram of type RAMB16_S9 has been replaced by RAMB16
-INFO:Xst:1901 - Instance block0.ram_byte2 in unit cache_ram of type RAMB16_S9 has been replaced by RAMB16
-INFO:Xst:1901 - Instance block0.ram_byte1 in unit cache_ram of type RAMB16_S9 has been replaced by RAMB16
-INFO:Xst:1901 - Instance block0.ram_byte0 in unit cache_ram of type RAMB16_S9 has been replaced by RAMB16
+INFO:Xst:1901 - Instance block0.ram_byte3 in unit cache_ram of type RAMB16_S36 has been replaced by RAMB16
+INFO:Xst:1901 - Instance block0.ram_byte2 in unit cache_ram of type RAMB16_S36 has been replaced by RAMB16
+INFO:Xst:1901 - Instance block0.ram_byte1 in unit cache_ram of type RAMB16_S36 has been replaced by RAMB16
+INFO:Xst:1901 - Instance block0.ram_byte0 in unit cache_ram of type RAMB16_S36 has been replaced by RAMB16
 INFO:Xst:1901 - Instance cache_tag in unit cache of type RAMB16_S9 has been replaced by RAMB16
 INFO:Xst:1901 - Instance u1_plasma_top/u0_clk/DCM_BASE0 in unit top_ml410 of type DCM_BASE has been replaced by DCM_ADV
 
@@ -1878,27 +1965,129 @@ Optimizing unit <mlite_cpu> ...
 Optimizing unit <cache> ...
 
 Optimizing unit <plasma> ...
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_73> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_67> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_72> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_66> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_65> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_71> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_70> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_64> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_59> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_58> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_63> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_57> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_62> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_61> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_56> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_55> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_60> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_49> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_54> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_48> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_53> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_47> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_52> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_51> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_95> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_94> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_89> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_93> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_88> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_92> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_87> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_91> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_86> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_90> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_85> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_79> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_84> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_83> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_78> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_82> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_77> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_81> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_76> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_80> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_75> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_69> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_74> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_68> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_24> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_23> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_18> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_22> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_17> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_21> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_16> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_20> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_15> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_14> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_13> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_12> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_11> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_10> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_9> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_8> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_7> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_6> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_5> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_4> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_3> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_1> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_2> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_0> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_46> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_45> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_50> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_39> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_44> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_38> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_43> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_37> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_42> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_36> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_41> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_35> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_40> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_29> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_34> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_28> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_33> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_27> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_32> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_26> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_31> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_25> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_30> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/data_write2_19> (without init value) has a constant value of 0 in block <top_ml410>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_reg_27> of sequential type is unconnected in block <top_ml410>.
 WARNING:Xst:2677 - Node <u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_reg_26> of sequential type is unconnected in block <top_ml410>.
 WARNING:Xst:2677 - Node <u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_reg_25> of sequential type is unconnected in block <top_ml410>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top_ml410, actual ratio is 8.
+INFO:Xst:2261 - The FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_0> in Unit <top_ml410> is equivalent to the following FF/Latch, which will be removed : <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_1> 
+INFO:Xst:2261 - The FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_2> in Unit <top_ml410> is equivalent to the following FF/Latch, which will be removed : <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_3> 
+INFO:Xst:2261 - The FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_4> in Unit <top_ml410> is equivalent to the following FF/Latch, which will be removed : <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_5> 
+INFO:Xst:2261 - The FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_6> in Unit <top_ml410> is equivalent to the following FF/Latch, which will be removed : <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_7> 
+INFO:Xst:2261 - The FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_8> in Unit <top_ml410> is equivalent to the following FF/Latch, which will be removed : <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_9> 
+INFO:Xst:2261 - The FF/Latch <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_10> in Unit <top_ml410> is equivalent to the following FF/Latch, which will be removed : <u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_11> 
+Found area constraint ratio of 100 (+ 5) on block top_ml410, actual ratio is 10.
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_1 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_15 has been replicated 1 time(s)
-FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_26 has been replicated 1 time(s)
+FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_23 has been replicated 1 time(s)
+FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_26 has been replicated 2 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_27 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_28 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_29 has been replicated 1 time(s)
-FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_30 has been replicated 1 time(s)
+FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_30 has been replicated 2 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/a_busD_0 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/a_busD_1 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_0 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_1 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_2 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_3 has been replicated 1 time(s)
-FlipFlop u1_plasma_top/u2_ddr/u1_ddr_init/init_step_3 has been replicated 1 time(s)
 FlipFlop u1_plasma_top/u2_ddr/u2_ddr/clk_p has been replicated 3 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
@@ -1907,8 +2096,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 770
- Flip-Flops                                            : 770
+# Registers                                            : 880
+ Flip-Flops                                            : 880
 
 =========================================================================
 
@@ -1937,30 +2126,31 @@ Design Statistics
 # IOs                              : 77
 
 Cell Usage :
-# BELS                             : 3948
+# BELS                             : 4537
 #      GND                         : 1
-#      INV                         : 24
+#      INV                         : 21
 #      LUT1                        : 8
-#      LUT2                        : 177
-#      LUT2_D                      : 42
-#      LUT2_L                      : 10
-#      LUT3                        : 704
+#      LUT2                        : 235
+#      LUT2_D                      : 36
+#      LUT2_L                      : 11
+#      LUT3                        : 712
 #      LUT3_D                      : 105
-#      LUT3_L                      : 57
-#      LUT4                        : 2045
-#      LUT4_D                      : 185
-#      LUT4_L                      : 167
+#      LUT3_L                      : 169
+#      LUT4                        : 2315
+#      LUT4_D                      : 323
+#      LUT4_L                      : 187
 #      MUXCY                       : 44
-#      MUXF5                       : 360
+#      MUXF5                       : 351
 #      VCC                         : 1
 #      XORCY                       : 18
-# FlipFlops/Latches                : 770
+# FlipFlops/Latches                : 880
 #      FD                          : 6
-#      FDC                         : 241
-#      FDC_1                       : 39
-#      FDCE                        : 367
-#      FDCE_1                      : 18
-#      FDE                         : 88
+#      FDC                         : 244
+#      FDC_1                       : 45
+#      FDCE                        : 370
+#      FDCE_1                      : 19
+#      FDE                         : 184
+#      FDE_1                       : 1
 #      FDP                         : 2
 #      FDPE                        : 9
 # RAMS                             : 137
@@ -1982,10 +2172,10 @@ Device utilization summary:
 
 Selected Device : 4vfx60ff1152-11 
 
- Number of Slices:                     2102  out of  25280     8%  
- Number of Slice Flip Flops:            767  out of  50560     1%  
- Number of 4 input LUTs:               3780  out of  50560     7%  
-    Number used as logic:              3524
+ Number of Slices:                     2402  out of  25280     9%  
+ Number of Slice Flip Flops:            877  out of  50560     1%  
+ Number of 4 input LUTs:               4378  out of  50560     8%  
+    Number used as logic:              4122
     Number used as RAMs:                256
  Number of IOs:                          77
  Number of bonded IOBs:                  75  out of    576    13%  
@@ -2016,8 +2206,8 @@ Clock Information:
 -----------------------------------+-------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)               | Load  |
 -----------------------------------+-------------------------------------+-------+
-sys_clk_pin                        | u1_plasma_top/u0_clk/DCM_BASE0:CLKFX| 97    |
-u1_plasma_top/u0_clk/clk_bufg_in   | BUFG                                | 810   |
+sys_clk_pin                        | u1_plasma_top/u0_clk/DCM_BASE0:CLKFX| 202   |
+u1_plasma_top/u0_clk/clk_bufg_in   | BUFG                                | 815   |
 -----------------------------------+-------------------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -2025,9 +2215,9 @@ Asynchronous Control Signals Information:
 -----------------------------------------------------------------------------------+----------------------------------------------------------+-------+
 Control Signal                                                                     | Buffer(FF name)                                          | Load  |
 -----------------------------------------------------------------------------------+----------------------------------------------------------+-------+
-u1_plasma_top/u1_plasma/u1_cpu/reset(u1_plasma_top/u1_plasma/u1_cpu/reset_or0000:O)| NONE(u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_reg_10)| 394   |
+u1_plasma_top/u1_plasma/u1_cpu/reset(u1_plasma_top/u1_plasma/u1_cpu/reset_or0000:O)| NONE(u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_reg_10)| 397   |
 u1_plasma_top/reset_cpu(u1_plasma_top/reset_cpu1:O)                                | NONE(u1_plasma_top/u1_plasma/counter_hi_reg_32)          | 176   |
-u1_plasma_top/reset(u1_plasma_top/reset1:O)                                        | NONE(u1_plasma_top/u2_ddr/u1_ddr_init/init_step_0)       | 105   |
+u1_plasma_top/reset(u1_plasma_top/reset1:O)                                        | NONE(u1_plasma_top/u2_ddr/u1_ddr_init/init_step_0)       | 115   |
 u1_plasma_top/reset_in(u1_plasma_top/reset_in1_INV_0:O)                            | NONE(u1_plasma_top/u0_clk/clk_bufg_in)                   | 1     |
 -----------------------------------------------------------------------------------+----------------------------------------------------------+-------+
 
@@ -2035,9 +2225,9 @@ Timing Summary:
 ---------------
 Speed Grade: -11
 
-   Minimum period: 12.516ns (Maximum Frequency: 79.898MHz)
-   Minimum input arrival time before clock: 10.181ns
-   Maximum output required time after clock: 11.571ns
+   Minimum period: 12.983ns (Maximum Frequency: 77.024MHz)
+   Minimum input arrival time before clock: 9.520ns
+   Maximum output required time after clock: 12.173ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -2046,47 +2236,47 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sys_clk_pin'
-  Clock period: 1.972ns (frequency: 507.089MHz)
-  Total number of paths / destination ports: 151 / 78
+  Clock period: 2.183ns (frequency: 457.998MHz)
+  Total number of paths / destination ports: 646 / 219
 -------------------------------------------------------------------------
-Delay:               2.491ns (Levels of Logic = 2)
+Delay:               2.758ns (Levels of Logic = 2)
   Source:            u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2 (FF)
-  Destination:       u1_plasma_top/u2_ddr/u2_ddr/cycle_count_0 (FF)
+  Destination:       u1_plasma_top/u2_ddr/u2_ddr/data_read_20 (FF)
   Source Clock:      sys_clk_pin rising 0.8X
   Destination Clock: sys_clk_pin rising 0.8X
 
-  Data Path: u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2 to u1_plasma_top/u2_ddr/u2_ddr/cycle_count_0
+  Data Path: u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2 to u1_plasma_top/u2_ddr/u2_ddr/data_read_20
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             5   0.307   0.613  u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2)
-     LUT3:I0->O            1   0.166   0.452  u1_plasma_top/u2_ddr/u2_ddr/cycle_count_not0001_SW0 (N38)
-     LUT4:I3->O            3   0.166   0.326  u1_plasma_top/u2_ddr/u2_ddr/cycle_count_not0001 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count_not0001)
-     FDCE:CE                   0.461          u1_plasma_top/u2_ddr/u2_ddr/cycle_count_0
+     FDCE:C->Q             6   0.307   0.625  u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2)
+     LUT4:I1->O            4   0.166   0.517  u1_plasma_top/u2_ddr/u2_ddr/data_read_10_and000011 (N2)
+     LUT3:I1->O           16   0.166   0.516  u1_plasma_top/u2_ddr/u2_ddr/data_read_20_and00001 (u1_plasma_top/u2_ddr/u2_ddr/data_read_20_and0000)
+     FDE:CE                    0.461          u1_plasma_top/u2_ddr/u2_ddr/data_read_20
     ----------------------------------------
-    Total                      2.491ns (1.100ns logic, 1.391ns route)
-                                       (44.2% logic, 55.8% route)
+    Total                      2.758ns (1.100ns logic, 1.658ns route)
+                                       (39.9% logic, 60.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'u1_plasma_top/u0_clk/clk_bufg_in'
-  Clock period: 12.516ns (frequency: 79.898MHz)
-  Total number of paths / destination ports: 65494650 / 2591
+  Clock period: 12.983ns (frequency: 77.024MHz)
+  Total number of paths / destination ports: 220538276 / 2684
 -------------------------------------------------------------------------
-Delay:               12.516ns (Levels of Logic = 31)
-  Source:            u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_3 (FF)
+Delay:               12.983ns (Levels of Logic = 30)
+  Source:            u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_31 (FF)
   Destination:       u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte0 (RAM)
   Source Clock:      u1_plasma_top/u0_clk/clk_bufg_in rising
   Destination Clock: u1_plasma_top/u0_clk/clk_bufg_in rising
 
-  Data Path: u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_3 to u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte0
+  Data Path: u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_31 to u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q            19   0.307   0.803  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_3 (u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_3)
-     LUT4:I1->O            3   0.166   0.518  u1_plasma_top/u1_plasma/u1_cpu/u3_control/exception_out_or0000_SW0_SW0 (N679)
-     LUT4_D:I2->O         10   0.166   0.563  u1_plasma_top/u1_plasma/u1_cpu/u3_control/exception_out_or0000_1 (u1_plasma_top/u1_plasma/u1_cpu/u3_control/exception_out_or0000)
-     LUT4_D:I3->O          4   0.166   0.517  u1_plasma_top/u1_plasma/u1_cpu/u3_control/rs_index<3> (u1_plasma_top/u1_plasma/u1_cpu/rs_index<3>)
-     LUT4:I2->O           14   0.166   0.481  u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/addr_read1<3>1_1 (u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/addr_read1<3>1)
+     FDCE:C->Q            18   0.307   0.655  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_31 (u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_31)
+     LUT4_D:I3->O         15   0.166   0.653  u1_plasma_top/u1_plasma/u1_cpu/u3_control/alu_func_cmp_eq000011 (u1_plasma_top/u1_plasma/u1_cpu/u3_control/rt_index_and0000)
+     LUT4:I3->O           11   0.166   0.627  u1_plasma_top/u1_plasma/u1_cpu/u3_control/exception_out_or0000_1 (u1_plasma_top/u1_plasma/u1_cpu/u3_control/exception_out_or0000)
+     LUT4:I2->O            8   0.166   0.667  u1_plasma_top/u1_plasma/u1_cpu/u3_control/rs_index<2>1 (u1_plasma_top/u1_plasma/u1_cpu/rs_index<2>)
+     LUT4:I1->O           16   0.166   0.516  u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/addr_read1<3>1_1 (u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/addr_read1<3>1)
      RAM16X1D:DPRA3->DPO    1   0.165   0.638  u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_loop[3].reg_bit1a (u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/data_out1A<3>)
      LUT4:I0->O            1   0.166   0.000  u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out<3>1 (u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out<3>)
      MUXF5:I1->O           2   0.319   0.520  u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out<3>_f5 (u1_plasma_top/u1_plasma/u1_cpu/reg_source<3>)
@@ -2105,46 +2295,45 @@ Delay:               12.516ns (Levels of Logic = 31)
      MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<12> (u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<12>)
      MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<13> (u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<13>)
      MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<14> (u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<14>)
-     MUXCY:CI->O          18   0.315   0.516  u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<15> (u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<15>)
-     MUXF5:S->O            1   0.449   0.452  u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_next_mux0001<29>11_SW3_SW0 (N806)
-     LUT4_L:I3->LO         1   0.166   0.139  u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_next_mux0001<23>33 (u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_next_mux0001<23>33)
-     LUT4:I3->O            2   0.166   0.467  u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_next_mux0001<23>50 (u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_next_mux0001<23>)
-     LUT4:I3->O            1   0.166   0.000  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000152_SW0_F (N1657)
-     MUXF5:I0->O           2   0.325   0.467  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000152_SW0 (N477)
-     LUT4:I3->O           12   0.166   0.591  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000152_SW1_SW0 (N788)
-     LUT4_D:I3->O         15   0.166   0.653  u1_plasma_top/u1_plasma/Mmux_cache_ram_data_w1011 (u1_plasma_top/u1_plasma/N0)
-     LUT3:I2->O            1   0.166   0.313  u1_plasma_top/u1_plasma/Mmux_cache_ram_data_w261 (u1_plasma_top/u1_plasma/cache_ram_data_w<20>)
-     RAMB16:DIA4               0.200          u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte2
+     MUXCY:CI->O          13   0.315   0.597  u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<15> (u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/Mcompar_is_equal_cmp_eq0000_cy<15>)
+     LUT3_D:I2->O         18   0.166   0.655  u1_plasma_top/u1_plasma/u1_cpu/u5_bus_mux/branch_func<2> (u1_plasma_top/u1_plasma/u1_cpu/take_branch)
+     LUT3:I2->O            1   0.166   0.000  u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_future<22>11 (u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_future<22>1)
+     MUXF5:I1->O           2   0.319   0.467  u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_future<22>1_f5 (u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/N36)
+     LUT4:I3->O            5   0.166   0.613  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_var_mux0003<20>16 (u1_plasma_top/u1_plasma/address_next<22>)
+     LUT4:I1->O            8   0.166   0.712  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000108_SW2 (N1596)
+     LUT4_D:I0->O          3   0.166   0.465  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000203_SW2 (N2534)
+     LUT4:I3->O            4   0.166   0.325  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/byte_enable_2_and0000 (u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/byte_enable<2>)
+     RAMB16:WEA0               0.650          u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte2
     ----------------------------------------
-    Total                     12.516ns (4.878ns logic, 7.638ns route)
-                                       (39.0% logic, 61.0% route)
+    Total                     12.983ns (4.873ns logic, 8.110ns route)
+                                       (37.5% logic, 62.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'sys_clk_pin'
-  Total number of paths / destination ports: 68 / 68
+  Total number of paths / destination ports: 261 / 261
 -------------------------------------------------------------------------
-Offset:              4.163ns (Levels of Logic = 3)
+Offset:              3.247ns (Levels of Logic = 3)
   Source:            sys_rst_pin (PAD)
-  Destination:       u1_plasma_top/u2_ddr/u2_ddr/data_read_29 (FF)
+  Destination:       u1_plasma_top/u2_ddr/u2_ddr/data_read_20 (FF)
   Destination Clock: sys_clk_pin rising 0.8X
 
-  Data Path: sys_rst_pin to u1_plasma_top/u2_ddr/u2_ddr/data_read_29
+  Data Path: sys_rst_pin to u1_plasma_top/u2_ddr/u2_ddr/data_read_20
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             9   0.867   0.600  sys_rst_pin_IBUF (sys_rst_pin_IBUF)
-     LUT2:I0->O          107   0.166   1.387  u1_plasma_top/reset1 (u1_plasma_top/reset)
-     LUT4:I0->O           16   0.166   0.516  u1_plasma_top/u2_ddr/u2_ddr/data_read_29_and00001 (u1_plasma_top/u2_ddr/u2_ddr/data_read_29_and0000)
-     FDE:CE                    0.461          u1_plasma_top/u2_ddr/u2_ddr/data_read_29
+     IBUF:I->O             7   0.867   0.554  sys_rst_pin_IBUF (sys_rst_pin_IBUF)
+     LUT4:I2->O            4   0.166   0.517  u1_plasma_top/u2_ddr/u2_ddr/data_read_10_and000011 (N2)
+     LUT3:I1->O           16   0.166   0.516  u1_plasma_top/u2_ddr/u2_ddr/data_read_20_and00001 (u1_plasma_top/u2_ddr/u2_ddr/data_read_20_and0000)
+     FDE:CE                    0.461          u1_plasma_top/u2_ddr/u2_ddr/data_read_20
     ----------------------------------------
-    Total                      4.163ns (1.660ns logic, 2.503ns route)
-                                       (39.9% logic, 60.1% route)
+    Total                      3.247ns (1.660ns logic, 1.587ns route)
+                                       (51.1% logic, 48.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'u1_plasma_top/u0_clk/clk_bufg_in'
-  Total number of paths / destination ports: 1406 / 277
+  Total number of paths / destination ports: 4000 / 363
 -------------------------------------------------------------------------
-Offset:              10.181ns (Levels of Logic = 11)
+Offset:              9.520ns (Levels of Logic = 10)
   Source:            sys_rst_pin (PAD)
   Destination:       u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte0 (RAM)
   Destination Clock: u1_plasma_top/u0_clk/clk_bufg_in rising
@@ -2153,21 +2342,20 @@ Offset:              10.181ns (Levels of Logic = 11)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             9   0.867   0.688  sys_rst_pin_IBUF (sys_rst_pin_IBUF)
-     LUT4_L:I1->LO         1   0.166   0.139  u1_plasma_top/u1_plasma/u1_cpu/reset_or0000_SW0 (N148)
-     LUT4:I3->O          409   0.166   2.228  u1_plasma_top/u1_plasma/u1_cpu/reset_or0000 (u1_plasma_top/u1_plasma/u1_cpu/reset)
-     LUT4:I3->O            1   0.166   0.638  u1_plasma_top/u1_plasma/u1_cpu/pause_any1_SW0 (N685)
-     LUT4_L:I0->LO         1   0.166   0.192  u1_plasma_top/u1_plasma/cpu_pause_SW3 (N1376)
-     LUT4:I2->O           23   0.166   0.969  u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_future<10>11 (u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/N14)
-     LUT4:I0->O            1   0.166   0.452  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_var_mux0003<27>_SW0 (N381)
-     LUT4:I3->O           11   0.166   0.574  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_var_mux0003<27> (u1_plasma_top/u1_plasma/address_next<29>)
-     LUT4:I3->O            2   0.166   0.608  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000203_SW0 (N836)
-     LUT4_D:I1->O         15   0.166   0.653  u1_plasma_top/u1_plasma/Mmux_cache_ram_data_w1011 (u1_plasma_top/u1_plasma/N0)
-     LUT3:I2->O            1   0.166   0.313  u1_plasma_top/u1_plasma/Mmux_cache_ram_data_w261 (u1_plasma_top/u1_plasma/cache_ram_data_w<20>)
-     RAMB16:DIA4               0.200          u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte2
+     IBUF:I->O             7   0.867   0.642  sys_rst_pin_IBUF (sys_rst_pin_IBUF)
+     LUT4_L:I1->LO         1   0.166   0.192  u1_plasma_top/u1_plasma/u1_cpu/reset_or0000_SW0 (N148)
+     LUT4:I2->O          417   0.166   2.308  u1_plasma_top/u1_plasma/u1_cpu/reset_or0000 (u1_plasma_top/u1_plasma/u1_cpu/reset)
+     LUT4:I2->O            2   0.166   0.608  u1_plasma_top/u1_plasma/u1_cpu/pause_any1_SW2 (N1592)
+     LUT4_L:I1->LO         1   0.166   0.139  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_var_mux0003<20>1 (u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_var_mux0003<20>1)
+     LUT4:I3->O            1   0.166   0.505  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_var_mux0003<20>16_SW0_SW0 (N738)
+     LUT4:I2->O            5   0.166   0.613  u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/address_var_mux0003<20>16 (u1_plasma_top/u1_plasma/address_next<22>)
+     LUT4:I1->O            8   0.166   0.712  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000108_SW2 (N1596)
+     LUT4_D:I0->O          3   0.166   0.465  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_access_cmp_eq0000203_SW2 (N2534)
+     LUT4:I3->O            4   0.166   0.325  u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/byte_enable_2_and0000 (u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/byte_enable<2>)
+     RAMB16:WEA0               0.650          u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte2
     ----------------------------------------
-    Total                     10.181ns (2.727ns logic, 7.454ns route)
-                                       (26.8% logic, 73.2% route)
+    Total                      9.520ns (3.011ns logic, 6.509ns route)
+                                       (31.6% logic, 68.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'sys_clk_pin'
@@ -2191,47 +2379,51 @@ Offset:              4.839ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'u1_plasma_top/u0_clk/clk_bufg_in'
-  Total number of paths / destination ports: 65302 / 49
+  Total number of paths / destination ports: 80890 / 49
 -------------------------------------------------------------------------
-Offset:              11.571ns (Levels of Logic = 14)
-  Source:            u1_plasma_top/u2_ddr/u1_ddr_init/init_step_9 (FF)
-  Destination:       fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin<12> (PAD)
+Offset:              12.173ns (Levels of Logic = 18)
+  Source:            u1_plasma_top/u2_ddr/u1_ddr_init/init_step_8 (FF)
+  Destination:       fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin<8> (PAD)
   Source Clock:      u1_plasma_top/u0_clk/clk_bufg_in rising
 
-  Data Path: u1_plasma_top/u2_ddr/u1_ddr_init/init_step_9 to fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin<12>
+  Data Path: u1_plasma_top/u2_ddr/u1_ddr_init/init_step_8 to fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin<8>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             4   0.307   0.650  u1_plasma_top/u2_ddr/u1_ddr_init/init_step_9 (u1_plasma_top/u2_ddr/u1_ddr_init/init_step_9)
-     LUT4_D:I0->O          6   0.166   0.484  u1_plasma_top/u2_ddr/u1_ddr_init/wait_cycle<1>14 (u1_plasma_top/u2_ddr/u1_ddr_init/wait_cycle<1>14)
-     LUT4:I3->O            6   0.166   0.537  u1_plasma_top/u2_ddr/u1_ddr_init/initiating1_1 (u1_plasma_top/u2_ddr/u1_ddr_init/initiating1)
-     LUT4:I2->O           11   0.166   0.435  u1_plasma_top/u2_ddr/address_ddr<10>1 (fpga_0_DDR_SDRAM_32Mx64_DDR_BankAddr_pin_0_OBUF)
-     MUXF5:S->O            1   0.449   0.505  u1_plasma_top/u2_ddr/u2_ddr/Mmux_address_row_mux0000_2_f5_7 (u1_plasma_top/u2_ddr/u2_ddr/address_row_mux0000<5>)
-     LUT4:I2->O            1   0.166   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_lut<2> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_lut<2>)
-     MUXCY:S->O            1   0.312   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<2> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<2>)
+     FDCE:C->Q             3   0.307   0.651  u1_plasma_top/u2_ddr/u1_ddr_init/init_step_8 (u1_plasma_top/u2_ddr/u1_ddr_init/init_step_8)
+     LUT4_D:I0->O          7   0.166   0.554  u1_plasma_top/u2_ddr/u1_ddr_init/wait_cycle<1>14 (u1_plasma_top/u2_ddr/u1_ddr_init/wait_cycle<1>14)
+     LUT4:I2->O            2   0.166   0.520  u1_plasma_top/u2_ddr/u1_ddr_init/initiating1_1 (u1_plasma_top/u2_ddr/u1_ddr_init/initiating1)
+     LUT4:I2->O           13   0.166   0.597  u1_plasma_top/u2_ddr/address_ddr<10>1_1 (u1_plasma_top/u2_ddr/address_ddr<10>1)
+     LUT3:I2->O            1   0.166   0.505  u1_plasma_top/u2_ddr/u2_ddr/Mmux_address_row_mux0000_2_f5_3 (u1_plasma_top/u2_ddr/u2_ddr/address_row_mux0000<1>)
+     LUT4:I2->O            1   0.166   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_lut<0> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_lut<0>)
+     MUXCY:S->O            1   0.312   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<0> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<0>)
+     MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<1> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<1>)
+     MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<2> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<2>)
      MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<3> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<3>)
      MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<4> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<4>)
      MUXCY:CI->O           1   0.038   0.000  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<5> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<5>)
-     MUXCY:CI->O           7   0.315   0.642  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<6> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<6>)
-     LUT4:I1->O           33   0.166   0.949  u1_plasma_top/u2_ddr/u2_ddr/command_mux0009<0>50 (fpga_0_DDR_SDRAM_32Mx64_DDR_WEn_pin_OBUF)
-     LUT3_D:I2->O         16   0.166   0.796  u1_plasma_top/u2_ddr/u2_ddr/address_row_0_and000021 (N22)
-     LUT4:I1->O            1   0.166   0.313  u1_plasma_top/u2_ddr/u2_ddr/SD_A<12>1 (fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin_12_OBUF)
-     OBUF:I->O                 3.601          fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin_12_OBUF (fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin<12>)
+     MUXCY:CI->O           8   0.315   0.526  u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<6> (u1_plasma_top/u2_ddr/u2_ddr/Mcompar_state_prev_cmp_ne0001_cy<6>)
+     LUT4:I3->O            2   0.166   0.520  u1_plasma_top/u2_ddr/u2_ddr/command_mux0009<0>61 (u1_plasma_top/u2_ddr/u2_ddr/command_mux0009<0>61)
+     LUT4:I2->O           18   0.166   0.655  u1_plasma_top/u2_ddr/u2_ddr/command_mux0009<0>73 (fpga_0_DDR_SDRAM_32Mx64_DDR_WEn_pin_OBUF)
+     LUT4:I3->O           15   0.166   0.794  u1_plasma_top/u2_ddr/u2_ddr/SD_A_or00001 (u1_plasma_top/u2_ddr/u2_ddr/SD_A_or0000)
+     LUT3:I0->O            1   0.166   0.000  u1_plasma_top/u2_ddr/u2_ddr/SD_A<8>_G (N3294)
+     MUXF5:I1->O           1   0.319   0.313  u1_plasma_top/u2_ddr/u2_ddr/SD_A<8> (fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin_8_OBUF)
+     OBUF:I->O                 3.601          fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin_8_OBUF (fpga_0_DDR_SDRAM_32Mx64_DDR_Addr_pin<8>)
     ----------------------------------------
-    Total                     11.571ns (6.260ns logic, 5.311ns route)
-                                       (54.1% logic, 45.9% route)
+    Total                     12.173ns (6.538ns logic, 5.635ns route)
+                                       (53.7% logic, 46.3% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 47.00 secs
-Total CPU time to Xst completion: 46.44 secs
+Total REAL time to Xst completion: 55.00 secs
+Total CPU time to Xst completion: 54.54 secs
  
 --> 
 
-Total memory usage is 421396 kilobytes
+Total memory usage is 447508 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   22 (   0 filtered)
-Number of infos    :   17 (   0 filtered)
+Number of warnings :  216 (   0 filtered)
+Number of infos    :   23 (   0 filtered)
 

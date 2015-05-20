@@ -12,8 +12,8 @@ entity ddr_ctrl_top is
       reset_in  : in std_logic;
                 
       address   : in std_logic_vector(31 downto 2);
-      byte_we   : in std_logic_vector(3 downto 0);
-      data_w    : in std_logic_vector(31 downto 0);
+      byte_we   : in std_logic_vector(15 downto 0);
+      data_w    : in std_logic_vector(127 downto 0);
       data_r    : out std_logic_vector(127 downto 0);
       no_start  : in std_logic;
       no_stop   : in std_logic;
@@ -59,8 +59,8 @@ architecture logic of ddr_ctrl_top is
            reset_in : in std_logic;
 
            address  : in std_logic_vector(26 downto 2);
-           byte_we  : in std_logic_vector(3 downto 0);
-           data_w   : in std_logic_vector(31 downto 0);
+           byte_we  : in std_logic_vector(15 downto 0);
+           data_w   : in std_logic_vector(127 downto 0);
            data_r   : out std_logic_vector(127 downto 0);
            active   : in std_logic;
            no_start : in std_logic;
@@ -90,7 +90,7 @@ architecture logic of ddr_ctrl_top is
    signal byte_we_init  : std_logic_vector(3 downto 0);
    
    signal address_ddr   : std_logic_vector(31 downto 2);
-   signal byte_we_ddr   : std_logic_vector(3 downto 0);
+   signal byte_we_ddr   : std_logic_vector(15 downto 0);
    signal SD_CKE_ddr    : std_logic;
    signal active_ddr    : std_logic;
    signal pause_ddr     : std_logic;
@@ -111,7 +111,7 @@ begin
          );
 
       address_ddr <= address_init when initiating = '1' else address;
-      byte_we_ddr <= byte_we_init when initiating = '1' else byte_we;
+      byte_we_ddr <= ZERO(15 downto 4) & byte_we_init when initiating = '1' else byte_we;
       SD_CKE <= '1' when initiating = '1' else SD_CKE_ddr; 
 		active_ddr <= '1' when address_ddr(31 downto 28) = "0001" else '0';
 		

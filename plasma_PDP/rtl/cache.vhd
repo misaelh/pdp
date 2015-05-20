@@ -125,7 +125,7 @@ begin
          state_next <= state;
       end if;
 
-      if byte_we_next = "0000" or byte_we_next = "1111" then  --read or 32-bit write
+      if byte_we_next = "0000" then  --read or 32-bit write
          cache_tag_in <= address_next(20 downto 12);
       else
          cache_tag_in <= ONES(8 downto 0);  --invalid tag

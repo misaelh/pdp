@@ -403,7 +403,6 @@ package mlite_pack is
    component plasma
       generic(
               log_file    : string := "UNUSED";
-              log_file2    : string := "UNUSED";
               use_cache   : std_logic := '0');
       port(clk          : in std_logic;
            reset        : in std_logic;
@@ -411,8 +410,8 @@ package mlite_pack is
            uart_read    : in std_logic;
    
            address      : out std_logic_vector(31 downto 2);
-           byte_we      : out std_logic_vector(3 downto 0); 
-           data_write   : out std_logic_vector(31 downto 0);
+           byte_we      : out std_logic_vector(15 downto 0); 
+           data_write   : out std_logic_vector(127 downto 0);
            data_read    : in std_logic_vector(127 downto 0);
            mem_pause_in : in std_logic;
            no_ddr_start : out std_logic;
@@ -428,8 +427,8 @@ package mlite_pack is
            reset_in : in std_logic;
 
            address  : in std_logic_vector(25 downto 2);
-           byte_we  : in std_logic_vector(3 downto 0);
-           data_w   : in std_logic_vector(31 downto 0);
+           byte_we  : in std_logic_vector(15 downto 0);
+           data_w   : in std_logic_vector(127 downto 0);
            data_r   : out std_logic_vector(127 downto 0);
            active   : in std_logic;
            no_start : in std_logic;

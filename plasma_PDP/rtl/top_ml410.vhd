@@ -49,8 +49,7 @@ architecture logic of top_ml410 is
 
    component plasma_top
      generic(log_file    : string := "UNUSED";
-             log_file2    : string := "UNUSED";
-       use_cache   : std_logic := '0');
+             use_cache   : std_logic := '0');
        port(SYS_CLK            : in std_logic;
             SYS_RESET          : in std_logic;
             RS232_DCE_RXD  : in std_logic;
@@ -87,7 +86,6 @@ begin  --architecture
                                                                                      
    u1_plasma_top: plasma_top                                                          
      generic map (log_file    => "UNUSED",
-                  log_file    => "UNUSED",  
                    use_cache   => '1')                                           
       port map (                                                                       
         SYS_CLK             =>  sys_clk_pin,                                                    

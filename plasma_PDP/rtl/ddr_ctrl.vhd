@@ -64,8 +64,8 @@ entity ddr_ctrl is
       reset_in : in std_logic;
 
       address  : in std_logic_vector(26 downto 2);
-      byte_we  : in std_logic_vector(3 downto 0);
-      data_w   : in std_logic_vector(31 downto 0);
+      byte_we  : in std_logic_vector(15 downto 0);
+      data_w   : in std_logic_vector(127 downto 0);
       data_r   : out std_logic_vector(127 downto 0);
       active   : in std_logic;
       no_start : in std_logic;
@@ -119,16 +119,17 @@ architecture logic of ddr_ctrl is
 
    signal state_prev   : ddr_state_type;
    signal refresh_cnt  : std_logic_vector(7 downto 0);
-   signal data_write2  : std_logic_vector(47 downto 0); --write pipeline
-   signal byte_we_reg2 : std_logic_vector(5 downto 0);  --write pipeline
+   signal data_write2  : std_logic_vector(143 downto 0); --write pipeline
+   signal byte_we_reg2 : std_logic_vector(17 downto 0);  --write pipeline
    signal write_active : std_logic;
    signal write_prev   : std_logic;
    signal cycle_count  : std_logic_vector(3 downto 0);  --half clocks since op
-   signal cycle_count2 : std_logic_vector(2 downto 0);  --delayed by quarter clock
+   signal cycle_count2 : std_logic_vector(3 downto 0);  --delayed by quarter clock
    signal cke_reg      : std_logic;
    signal clk_p        : std_logic;
    signal bank_open    : std_logic_vector(3 downto 0);
    signal data_read    : std_logic_vector(127 downto 0);
+   signal data_w_load  : std_logic;
 
 begin
    ddr_proc: process(clk, clk_p, clk_2x, reset_in, 
@@ -178,7 +179,7 @@ begin
       case state_prev is
          when STATE_POWER_ON =>
             if active = '1' then
-               if byte_we /= "0000" then
+               if byte_we /= ZERO(15 downto 0) then
                   command := address(6 downto 4); --LMR="000"
                else
                   state_current := STATE_IDLE;  --read transistions to STATE_IDLE
@@ -213,7 +214,7 @@ begin
                      command := COMMAND_PRECHARGE;
                   end if;
                else
-                  if byte_we /= "0000" then
+                  if byte_we /= ZERO(15 downto 0) then
                      command := COMMAND_WRITE;
                   elsif write_prev = '0' then
                      state_current := STATE_READ;
@@ -268,13 +269,13 @@ begin
 
          if command = COMMAND_WRITE then
             write_prev <= '1';
-         elsif cycle_count2(2 downto 1) = "11" then
+         elsif cycle_count2(3 downto 1) = "101" then
             write_prev <= '0';
          end if;
 
          if command = COMMAND_WRITE then
             write_active <= '1';
-         elsif cycle_count2 = "100" then
+         elsif cycle_count2 = "1000" then
             write_active <= '0';
          end if;
 
@@ -340,23 +341,24 @@ begin
 			  -- end if;
 			-- end if;
 
-		end if;
+      end if;
 
       --falling_edge(clk_2x) domain registers
       if reset_in = '1' then
-         cycle_count2 <= "000";
-         data_write2 <= ZERO(15 downto 0) & ZERO;
-         byte_we_reg2 <= "000000";
+         cycle_count2 <= ZERO(3 downto 0);
+         data_write2 <= ZERO(15 downto 0) & ZERO & ZERO & ZERO & ZERO;
+         byte_we_reg2 <= ZERO(17 downto 0);
       elsif falling_edge(clk_2x) then
-         cycle_count2 <= cycle_count(2 downto 0);
+         cycle_count2 <= cycle_count;
+         data_w_load  <= command(0); 
 
          --Write pipeline
-         if clk = '0' then
-            data_write2 <= data_write2(31 downto 16) & data_w;
-            byte_we_reg2 <= byte_we_reg2(3 downto 2) & byte_we;
+         if clk = '0' and data_w_load = '0' then
+            data_write2(127 downto 0) <= data_w;
+            byte_we_reg2(15 downto 0) <= byte_we;
          else
-            data_write2(47 downto 16) <= data_write2(31 downto 0);
-            byte_we_reg2(5 downto 2) <= byte_we_reg2(3 downto 0);
+            data_write2(143 downto 16) <= data_write2(127 downto 0);
+            byte_we_reg2(17 downto 2) <= byte_we_reg2(15 downto 0);
          end if;
 
          --Read data (DLL enabled)
@@ -396,9 +398,9 @@ begin
       if write_active = '1' then
          SD_UDQS <= clk_p;                   --upper_data_strobe 
          SD_LDQS <= clk_p;                   --low_data_strobe
-         SD_DQ <= data_write2(47 downto 32); --data
-         SD_UDM <= not byte_we_reg2(5);      --upper_byte_enable
-         SD_LDM <= not byte_we_reg2(4);      --low_byte_enable
+         SD_DQ <= data_write2(143 downto 128); --data
+         SD_UDM <= not byte_we_reg2(17);      --upper_byte_enable
+         SD_LDM <= not byte_we_reg2(16);      --low_byte_enable
       else
          SD_UDQS <= 'Z';               --upper_data_strobe 
          SD_LDQS <= 'Z';               --low_data_strobe

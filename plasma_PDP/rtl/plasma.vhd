@@ -35,13 +35,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use work.mlite_pack.all;
-use std.textio.all;
-use ieee.std_logic_textio.all;
-use ieee.numeric_std.all;
   
 entity plasma is
    generic(log_file    : string := "UNUSED";
-           log_file2   : string := "UNUSED";
            use_cache   : std_logic := '0');
    port(clk          : in std_logic;
 		    reset        : in std_logic;
@@ -50,8 +46,8 @@ entity plasma is
         uart_read    : in std_logic;
 
         address      : out std_logic_vector(31 downto 2);
-        byte_we      : out std_logic_vector(3 downto 0); 
-        data_write   : out std_logic_vector(31 downto 0);
+        byte_we      : out std_logic_vector(15 downto 0); 
+        data_write   : out std_logic_vector(127 downto 0);
         data_read    : in std_logic_vector(127 downto 0);
         mem_pause_in : in std_logic;
         no_ddr_start : out std_logic;
@@ -105,28 +101,8 @@ architecture logic of plasma is
    signal cache_miss        : std_logic;
    signal cache_hit         : std_logic;
 
-   file l_file: TEXT open write_mode is log_file2;
-   
 begin  --architecture
 
-  logger:
-  if log_file2 /= "UNUSED" generate
-
-    logger_proc:process (cache_ram_address,cache_ram_data_r,cache_miss,cache_checking)
-   variable l: line;
-    begin
-      if (cache_miss='1' or cache_checking='1') then
-        write(l,  cache_ram_address);
-        write(l,  string'(","));
-        write(l,  cache_ram_data_r);
-        write(l,  string'(","));
-        write(l,  cache_miss);
-        --write(l,  string'("  "&cache_ram_address& " "& cache_ram_data_r& " " & cache_miss));
-        writeline(l_file, l);
-      end if;
-    end process;
-  end generate;
-    
    write_enable <= '1' when cpu_byte_we /= "0000" else '0';
    mem_busy <= mem_pause_in;
    cache_hit <= cache_checking and not cache_miss;
@@ -338,8 +314,8 @@ begin  --architecture
          data_avail   => uart_data_avail);
 
       address <= cpu_address(31 downto 2);
-      byte_we <= cpu_byte_we;
-      data_write <= cpu_data_w;
+      byte_we <= cpu_byte_we & ZERO(11 downto 0);
+      data_write  <= cpu_data_w & ZERO & ZERO & ZERO;
       gpio0_out(28 downto 24) <= ZERO(28 downto 24);
 
 end; --architecture logic
