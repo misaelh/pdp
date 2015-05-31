@@ -363,7 +363,8 @@ package mlite_pack is
 
            cache_access      : out std_logic;   --access 4KB cache
            cache_checking    : out std_logic;   --checking if cache hit
-           cache_miss        : out std_logic);  --cache miss
+           cache_miss        : out std_logic;  --cache miss
+		   stall_comp		 : out std_logic);
    end component; --cache
 
    component cache_ram
@@ -373,7 +374,10 @@ package mlite_pack is
            write_byte_enable : in std_logic_vector(15 downto 0);
            address           : in std_logic_vector(31 downto 2);
            data_write        : in std_logic_vector(127 downto 0);
-           data_read         : out std_logic_vector(127 downto 0));
+           byte_we_next		 : in std_logic_vector(3 downto 0);
+		   data_read         : out std_logic_vector(127 downto 0);  --cache miss
+		   stall_comp		 : out std_logic);
+
    end component; --ram
    
    component boot_ram

@@ -9,29 +9,31 @@ Target Device  : xc4vfx60
 Target Package : ff1152
 Target Speed   : -11
 Mapper Version : virtex4 -- $Revision: 1.55 $
-Mapped Date    : Wed May 20 06:26:22 2015
+Mapped Date    : Sun May 31 18:45:43 2015
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:   12
 Logic Utilization:
-  Number of Slice Flip Flops:           884 out of  50,560    1%
+  Total Number Slice Registers:       1,030 out of  50,560    2%
+    Number used as Flip Flops:          902
+    Number used as Latches:             128
     Number of Slice FFs used for
-    DCM autocalibration logic:          7 out of     884    1%
-  Number of 4 input LUTs:             4,378 out of  50,560    8%
+    DCM autocalibration logic:          7 out of     902    1%
+  Number of 4 input LUTs:             4,535 out of  50,560    8%
     Number of LUTs used for
-    DCM autocalibration logic:          4 out of   4,378    1%
+    DCM autocalibration logic:          4 out of   4,535    1%
       *See INFO below for an explanation of the DCM autocalibration logic
        added by Map
 Logic Distribution:
-  Number of occupied Slices:          2,375 out of  25,280    9%
-    Number of Slices containing only related logic:   2,375 out of   2,375 100%
-    Number of Slices containing unrelated logic:          0 out of   2,375   0%
+  Number of occupied Slices:          2,475 out of  25,280    9%
+    Number of Slices containing only related logic:   2,475 out of   2,475 100%
+    Number of Slices containing unrelated logic:          0 out of   2,475   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       4,389 out of  50,560    8%
-    Number used as logic:             4,115
-    Number used as a route-thru:         11
+  Total Number of 4 input LUTs:       4,547 out of  50,560    8%
+    Number used as logic:             4,272
+    Number used as a route-thru:         12
     Number used for Dual Port RAMs:     256
       (Two LUTs used per Dual Port RAM)
     Number used as Shift registers:       7
@@ -40,17 +42,17 @@ Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
   Number of bonded IOBs:                 77 out of     576   13%
     IOB Flip Flops:                       3
-  Number of BUFG/BUFGCTRLs:               3 out of      32    9%
-    Number used as BUFGs:                 3
+  Number of BUFG/BUFGCTRLs:               7 out of      32   21%
+    Number used as BUFGs:                 7
   Number of FIFO16/RAMB16s:               9 out of     232    3%
     Number used as RAMB16s:               9
   Number of DCM_ADVs:                     1 out of      12    8%
 
-Average Fanout of Non-Clock Nets:                4.06
+Average Fanout of Non-Clock Nets:                4.18
 
-Peak Memory Usage:  459 MB
-Total REAL time to MAP completion:  10 secs 
-Total CPU time to MAP completion:   7 secs 
+Peak Memory Usage:  455 MB
+Total REAL time to MAP completion:  8 secs 
+Total CPU time to MAP completion:   6 secs 
 
 NOTES:
 
@@ -145,15 +147,11 @@ WARNING:Pack:266 - The function generator
    more than one F5MUX.  The design will exhibit suboptimal timing.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
-   ASE0/CLKOUT is sourced by a combinatorial pin. This is not good design
+   ASE0/cd/CLK<2> is sourced by a combinatorial pin. This is not good design
    practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
    ASE0/cd/CLK<1> is sourced by a combinatorial pin. This is not good design
-   practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
-   ASE0/cd/CLK<2> is sourced by a combinatorial pin. This is not good design
    practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
@@ -171,13 +169,17 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
    ASE0/cd/CLK<6> is sourced by a combinatorial pin. This is not good design
    practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
+   ASE0/CLKOUT is sourced by a combinatorial pin. This is not good design
+   practice. Use the CE pin to control the loading of data into the flip-flop.
 
 Section 3 - Informational
 -------------------------
 INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
 INFO:Security:52 - The LM_LICENSE_FILE environment variable is set to
-'29002@flexserv11.tudelft.nl;29002@flexserv12.tudelft.nl;29002@flexserv13.tudelf
-t.nl'.
+'27017@flexserv1.tudelft.nl;29002@flexserv11.tudelft.nl;
+29002@flexserv12.tudelft.nl;
 INFO:Security:56 - Part 'xc4vfx60' is not a WebPack part.
 INFO:LIT:243 - Logical network fpga_0_RS232_Uart_1_ctsN_pin_IBUF has no load.
 INFO:LIT:395 - The above info message is repeated 129 more times for the

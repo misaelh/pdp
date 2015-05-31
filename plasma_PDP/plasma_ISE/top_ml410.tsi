@@ -69,7 +69,7 @@ Constraint Interaction Report
 =============================
 
 Constraint interactions for TS_u1_plasma_top_u0_clk_clk_2x_bufg_in = PERIOD TIMEGRP         "u1_plasma_top_u0_clk_clk_2x_bufg_in" TS_board_clk / 0.791666667 HIGH         50%;
-      36080 paths removed by TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE         0.31 ns HIGH 50%;
+      36096 paths removed by TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE         0.31 ns HIGH 50%;
 
 
 Clock Domain Overlap Report
@@ -78,6 +78,8 @@ Clock Domain Overlap Report
 TS_u1_plasma_top_u0_clk_clk_2x_bufg_in = PERIOD TIMEGRP         "u1_plasma_top_u0_clk_clk_2x_bufg_in" TS_board_clk / 0.791666667 HIGH         50%;
 TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE         0.31 ns HIGH 50%;
 {
+   u1_plasma_top/u2_ddr/u2_ddr/clk_p (u1_plasma_top/u2_ddr/u2_ddr/clk_p.CLK)
+   u1_plasma_top/u2_ddr/u2_ddr/cycle_count_0 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count<0>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/cycle_count_1 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count<1>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_17 (u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2<17>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_16 (u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2<17>.CLK)
@@ -91,7 +93,6 @@ TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE  
    u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_4 (u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2<6>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_10 (u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2<10>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_8 (u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2<10>.CLK)
-   u1_plasma_top/u2_ddr/u2_ddr/cycle_count_0 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count<0>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/cycle_count_3 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count<3>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/cycle_count_2 (u1_plasma_top/u2_ddr/u2_ddr/cycle_count<3>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/data_write2_101 (u1_plasma_top/u2_ddr/u2_ddr/data_write2<101>.CLK)
@@ -146,9 +147,8 @@ TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE  
    u1_plasma_top/u2_ddr/u2_ddr/data_write2_128 (u1_plasma_top/u2_ddr/u2_ddr/data_write2<129>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/data_write2_139 (u1_plasma_top/u2_ddr/u2_ddr/data_write2<139>.CLK)
    u1_plasma_top/u2_ddr/u2_ddr/data_write2_138 (u1_plasma_top/u2_ddr/u2_ddr/data_write2<139>.CLK)
-   u1_plasma_top/u2_ddr/u2_ddr/clk_p (u1_plasma_top/u2_ddr/u2_ddr/clk_p.CLK)
 }
 
-Timespec interaction analysis completed Wed May 20 06:28:32 2015
+Timespec interaction analysis completed Sun May 31 18:47:48 2015
 --------------------------------------------------------------------------------
 
