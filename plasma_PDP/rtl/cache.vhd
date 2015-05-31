@@ -33,7 +33,8 @@ entity cache is
 
         cache_access   		: out std_logic;   --access 4KB cache
         cache_checking 		: out std_logic;   --checking if cache hit
-        cache_miss     		: out std_logic);  --cache miss
+        cache_miss     		: out std_logic;  --cache miss
+		stall_comp		    : out std_logic);
 end; --cache
 
 architecture logic of cache is
@@ -249,7 +250,9 @@ begin
          write_byte_enable => cache_ram_byte_we,
          address           => cache_ram_address,
          data_write        => cache_ram_data_w,
-         data_read         => cache_ram_data_r128);
+         data_read         => cache_ram_data_r128,
+		 stall_comp		   => stall_comp,
+		 byte_we_next	   => byte_we_next);
 
    cache_ram_data_r <= cache_ram_data_r128(31 downto 0)   when cpu_address(3 downto 2) = "00" else
                        cache_ram_data_r128(63 downto 32)  when cpu_address(3 downto 2) = "01" else
