@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=D:\Workspace\Processor Design Project\pdp\plasma_PDP\plasma_ISE\top_ml410.ncd
-OUTFILE=D:\Workspace\Processor Design Project\pdp\plasma_PDP\plasma_ISE\top_ml410.bit
+INFILE=E:\pdp\plasma_PDP\plasma_ISE\top_ml410.ncd
+OUTFILE=E:\pdp\plasma_PDP\plasma_ISE\top_ml410.bit
 FAMILY=Virtex4
 PART=xc4vfx60-11ff1152
-WORKINGDIR=D:\Workspace\Processor Design Project\pdp\plasma_PDP\plasma_ISE
+WORKINGDIR=E:\pdp\plasma_PDP\plasma_ISE
 LICENSE=ISE
 USER_INFO=174118803_178259257_210573019_867

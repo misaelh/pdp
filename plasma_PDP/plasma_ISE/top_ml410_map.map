@@ -9,14 +9,13 @@ Target Device  : xc4vfx60
 Target Package : ff1152
 Target Speed   : -11
 Mapper Version : virtex4 -- $Revision: 1.55 $
-Mapped Date    : Sun May 31 18:45:43 2015
+Mapped Date    : Mon Jun 08 21:53:25 2015
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
 INFO:Security:52 - The LM_LICENSE_FILE environment variable is set to
-'27017@flexserv1.tudelft.nl;29002@flexserv11.tudelft.nl;
-29002@flexserv12.tudelft.nl;
-29002@flexserv13.tudelft.nl'.
+'29002@flexserv11.tudelft.nl;29002@flexserv12.tudelft.nl;29002@flexserv13.tudelf
+t.nl'.
 INFO:Security:56 - Part 'xc4vfx60' is not a WebPack part.
 WARNING:Security:43 - No license file was found in the standard Xilinx license
 directory.
@@ -47,7 +46,7 @@ WARNING:LIT:175 - Clock buffer is designated to drive clock loads. BUFG symbol
    Pin I2 of u1_plasma_top/u2_ddr/u2_ddr/cycle_count_and00001
    Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_129_and00001
    Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_129_not00011
-   Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_111_mux00011
+   Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_99_mux00011
 Running directed packing...
 WARNING:Pack:266 - The function generator
    u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out<2>1 failed to merge
@@ -69,11 +68,11 @@ Running related packing...
 Updating timing models...
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
-   ASE0/cd/CLK<2> is sourced by a combinatorial pin. This is not good design
+   ASE0/cd/CLK<1> is sourced by a combinatorial pin. This is not good design
    practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
-   ASE0/cd/CLK<1> is sourced by a combinatorial pin. This is not good design
+   ASE0/cd/CLK<2> is sourced by a combinatorial pin. This is not good design
    practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_B
@@ -103,24 +102,22 @@ Design Summary:
 Number of errors:      0
 Number of warnings:   12
 Logic Utilization:
-  Total Number Slice Registers:       1,030 out of  50,560    2%
-    Number used as Flip Flops:          902
-    Number used as Latches:             128
+  Number of Slice Flip Flops:         1,019 out of  50,560    2%
     Number of Slice FFs used for
-    DCM autocalibration logic:          7 out of     902    1%
-  Number of 4 input LUTs:             4,535 out of  50,560    8%
+    DCM autocalibration logic:          7 out of   1,019    1%
+  Number of 4 input LUTs:             4,596 out of  50,560    9%
     Number of LUTs used for
-    DCM autocalibration logic:          4 out of   4,535    1%
+    DCM autocalibration logic:          4 out of   4,596    1%
       *See INFO below for an explanation of the DCM autocalibration logic
        added by Map
 Logic Distribution:
-  Number of occupied Slices:          2,475 out of  25,280    9%
-    Number of Slices containing only related logic:   2,475 out of   2,475 100%
-    Number of Slices containing unrelated logic:          0 out of   2,475   0%
+  Number of occupied Slices:          2,510 out of  25,280    9%
+    Number of Slices containing only related logic:   2,510 out of   2,510 100%
+    Number of Slices containing unrelated logic:          0 out of   2,510   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       4,547 out of  50,560    8%
-    Number used as logic:             4,272
-    Number used as a route-thru:         12
+  Total Number of 4 input LUTs:       4,607 out of  50,560    9%
+    Number used as logic:             4,333
+    Number used as a route-thru:         11
     Number used for Dual Port RAMs:     256
       (Two LUTs used per Dual Port RAM)
     Number used as Shift registers:       7
@@ -129,17 +126,17 @@ Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
   Number of bonded IOBs:                 77 out of     576   13%
     IOB Flip Flops:                       3
-  Number of BUFG/BUFGCTRLs:               7 out of      32   21%
-    Number used as BUFGs:                 7
+  Number of BUFG/BUFGCTRLs:               3 out of      32    9%
+    Number used as BUFGs:                 3
   Number of FIFO16/RAMB16s:               9 out of     232    3%
     Number used as RAMB16s:               9
   Number of DCM_ADVs:                     1 out of      12    8%
 
-Average Fanout of Non-Clock Nets:                4.18
+Average Fanout of Non-Clock Nets:                4.15
 
-Peak Memory Usage:  455 MB
-Total REAL time to MAP completion:  8 secs 
-Total CPU time to MAP completion:   6 secs 
+Peak Memory Usage:  461 MB
+Total REAL time to MAP completion:  10 secs 
+Total CPU time to MAP completion:   7 secs 
 
 NOTES:
 

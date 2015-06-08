@@ -31,12 +31,12 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 Pin I1 of DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_BASE0/md/_n00011</arg>
 </msg>
 
-<msg type="warning" file="LIT" num="175" delta="old" >Clock buffer is designated to drive clock loads. <arg fmt="%s" index="1">BUFG symbol &quot;u1_plasma_top/u0_clk/CLK_BUF&quot; (output signal=u1_plasma_top/clk)</arg> has a mix of clock and non-clock loads. Some of the non-clock loads are (maximum of 5 listed):
+<msg type="warning" file="LIT" num="175" delta="new" >Clock buffer is designated to drive clock loads. <arg fmt="%s" index="1">BUFG symbol &quot;u1_plasma_top/u0_clk/CLK_BUF&quot; (output signal=u1_plasma_top/clk)</arg> has a mix of clock and non-clock loads. Some of the non-clock loads are (maximum of 5 listed):
 <arg fmt="%s" index="2">Pin D of u1_plasma_top/u2_ddr/u2_ddr/clk_p
 Pin I2 of u1_plasma_top/u2_ddr/u2_ddr/cycle_count_and00001
 Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_129_and00001
 Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_129_not00011
-Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_111_mux00011</arg>
+Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_99_mux00011</arg>
 </msg>
 
 <msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out&lt;2&gt;1</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out&lt;3&gt;_f5</arg>.  <arg fmt="%z" index="3">There is more than one F5MUX.</arg>  The design will exhibit suboptimal timing.
@@ -48,10 +48,10 @@ Pin I0 of u1_plasma_top/u2_ddr/u2_ddr/data_write2_111_mux00011</arg>
 <msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out&lt;2&gt;1</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">u1_plasma_top/u1_plasma/u1_cpu/u4_reg_bank/reg_source_out&lt;5&gt;_f5</arg>.  <arg fmt="%z" index="3">There is more than one F5MUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_BASE0/cd/CLK&lt;2&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_BASE0/cd/CLK&lt;1&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 </msg>
 
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_BASE0/cd/CLK&lt;1&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_BASE0/cd/CLK&lt;2&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_u1_plasma_top/u0_clk/DCM_BASE0/u1_plasma_top/u0_clk/DCM_BASE0/cd/CLK&lt;3&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.

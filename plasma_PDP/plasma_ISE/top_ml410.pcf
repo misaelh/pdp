@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sun May 31 18:45:50 2015
+// Written by: Map P.20131013 on Mon Jun 08 21:53:33 2015
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -102,7 +102,7 @@ PIN
         = BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte3"
         PINNAME CLKA;
-PIN u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_pins<11> = BEL
+PIN u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_pins<10> = BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag" PINNAME CLKA;
 PIN u1_plasma_top/u1_plasma/u2_boot_ram/block0.ram_byte0_pins<11> = BEL
         "u1_plasma_top/u1_plasma/u2_boot_ram/block0.ram_byte0" PINNAME CLKA;
@@ -116,12 +116,20 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u0_clk/CLK_BUF" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_99" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/write_active" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_0" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_2" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_1" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_3" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_4" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_5" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_6" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/clk_p" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_7" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_8" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_9" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_10" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_12" BEL
-        "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_13" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_14" BEL
-        "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_15" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_0_0" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_0_1" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_0_2" BEL
@@ -148,6 +156,7 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_1_10" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_1_11" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_1_12" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_10" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_2_0" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_2_1" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_2_2" BEL
@@ -161,6 +170,7 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_2_10" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_2_11" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_2_12" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_11" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_3_0" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_3_1" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_3_2" BEL
@@ -174,42 +184,126 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_3_10" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_3_11" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/address_row_3_12" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_12" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_13" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_14" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/bank_open_0" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_15" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_20" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/bank_open_1" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_16" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_21" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/bank_open_2" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_17" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_22" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/bank_open_3" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_18" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_23" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_24" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_19" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_30" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_25" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_31" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_26" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_32" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_27" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_33" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_28" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_34" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_29" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_40" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_35" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_41" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_36" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_42" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_37" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_43" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_38" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_44" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_39" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_50" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_45" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_46" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_51" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_52" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_47" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_53" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_48" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_54" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_49" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_60" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_55" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_56" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_61" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_62" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_57" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_63" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_58" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_59" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_64" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_100" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_70" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_71" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_65" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_101" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_66" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_102" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_103" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_72" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_67" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/write_prev" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_73" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/cke_reg" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_68" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_104" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_74" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_69" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_105" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_110" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_75" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_111" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_80" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_106" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_76" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_112" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_81" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_107" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_77" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_108" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_82" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_113" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_0" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_78" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_83" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_109" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_114" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_84" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_79" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_115" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_85" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_120" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_90" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_2" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_116" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_121" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_86" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_91" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_117" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_122" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_4" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_87" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_92" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_118" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_88" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_123" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_93" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_119" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_124" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_89" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_94" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_6" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_125" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_95" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_96" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_126" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_8" BEL
@@ -217,7 +311,6 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_97" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_98" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_16" BEL
-        "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_17" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/refresh_cnt_0" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/refresh_cnt_1" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/refresh_cnt_2" BEL
@@ -262,6 +355,10 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u2_ddr/u1_ddr_init/wait_cnt_2" BEL
         "u1_plasma_top/u2_ddr/u1_ddr_init/wait_cnt_1" BEL
         "u1_plasma_top/u2_ddr/u1_ddr_init/wait_cnt_0" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_0" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_1" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_2" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_3" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_reg_0" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_reg_1" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_reg_2" BEL
@@ -271,24 +368,52 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_reg_6" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_reg_7" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_reg_8" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_hold_0" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_hold_1" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_hold_2" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/byte_we_hold_3" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_4"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_5"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_6"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_7"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_8"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_9"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_10"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_11"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_12"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_13"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_14"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_15"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_16"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_17"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_18"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_19"
+        BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_ram_address_reg_20"
+        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/c_stall_ff" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_7" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_6" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_5" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_4" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_3" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_2" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_1" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_0" BEL
-        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block_sel_buf_2"
-        BEL
-        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block_sel_buf_1"
-        BEL
-        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block_sel_buf_0"
-        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_3"
-        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_2"
-        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_1"
-        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_0"
-        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/state_1"
-        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/state_0"
-        BEL
-        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/addr_block_aux_10"
-        BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/addr_block_aux_9"
         BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/addr_block_aux_8"
@@ -308,6 +433,11 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/addr_block_aux_1"
         BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/addr_block_aux_0"
+        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_3"
+        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_2"
+        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_1"
+        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/wbe_aux_0"
+        BEL "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/state_1"
         BEL "u1_plasma_top/u1_plasma/u1_cpu/intr_signal" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/reset_reg_0" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/reset_reg_1" BEL
@@ -1366,23 +1496,22 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u1_plasma/gpio0_reg_2" BEL
         "u1_plasma_top/u1_plasma/gpio0_reg_1" BEL
         "u1_plasma_top/u1_plasma/gpio0_reg_0" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/state_0" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_1_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_26_1" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_28_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_27_1" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_26_1" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_30_1" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_27_1" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_29_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_26_2" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_0_1" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_1_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_3_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_15_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/b_busD_0_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/a_busD_1_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/a_busD_0_1" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_26_2" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_30_2" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_0_1" BEL
         "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_2_1" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_28_2" BEL
-        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_27_2" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u9_pipeline/alu_funcD_3_1" BEL
+        "u1_plasma_top/u1_plasma/opt_cache2.u_cache/state_reg_4_1" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_15_1" BEL
+        "u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_reg_23_1" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_138" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_139" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_140" BEL
@@ -1409,7 +1538,7 @@ TIMEGRP clk = BEL "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte2_pins<9>"
         PIN
         "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_data/block0.ram_byte3_pins<9>"
-        PIN "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_pins<11>"
+        PIN "u1_plasma_top/u1_plasma/opt_cache2.u_cache/cache_tag_pins<10>"
         PIN "u1_plasma_top/u1_plasma/u2_boot_ram/block0.ram_byte0_pins<11>"
         PIN "u1_plasma_top/u1_plasma/u2_boot_ram/block0.ram_byte1_pins<11>"
         PIN "u1_plasma_top/u1_plasma/u2_boot_ram/block0.ram_byte2_pins<11>"
@@ -1418,43 +1547,137 @@ TIMEGRP u1_plasma_top_u0_clk_clk_2x_bufg_in = BEL
         "u1_plasma_top/u0_clk/clk_bufg_in" BEL
         "u1_plasma_top/u0_clk/CLK2X_BUF" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_99" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_0" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_2" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_1" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_3" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_4" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_5" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_6" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/clk_p" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_7" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_8" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_9" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_10" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_12" BEL
-        "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_13" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_14" BEL
-        "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_15" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_10" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_11" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_12" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_13" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_14" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_15" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_20" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_16" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_21" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_17" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_22" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_18" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_23" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_24" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_19" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_30" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_25" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_31" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_26" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_32" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_27" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_33" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_28" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_34" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_29" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_40" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_35" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_41" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_36" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_42" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_37" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_43" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_38" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_44" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_39" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_50" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_45" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_46" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_51" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_52" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_47" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_53" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_48" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_54" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_49" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_60" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_55" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_56" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_61" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_62" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_57" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_63" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_58" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_59" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_64" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_100" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_70" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_71" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_65" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_101" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_66" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_102" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_103" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_72" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_67" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_73" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_68" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_104" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_74" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_69" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_105" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_110" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_75" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_111" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_80" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_106" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_76" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_112" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_81" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_107" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_77" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_108" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_82" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_113" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_0" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_78" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_83" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_109" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_114" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_84" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_79" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_115" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_85" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_120" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_90" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_2" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_116" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_121" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_86" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_91" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_117" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_122" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_4" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_87" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_92" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_w_load" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_118" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_88" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_123" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_93" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_119" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_124" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_89" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_94" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_6" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_125" BEL
+        "u1_plasma_top/u2_ddr/u2_ddr/data_write2_95" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_96" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_126" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_8" BEL
@@ -1462,7 +1685,6 @@ TIMEGRP u1_plasma_top_u0_clk_clk_2x_bufg_in = BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_97" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/data_write2_98" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_16" BEL
-        "u1_plasma_top/u2_ddr/u2_ddr/byte_we_reg2_17" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/cycle_count2_0" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/cycle_count2_1" BEL
         "u1_plasma_top/u2_ddr/u2_ddr/cycle_count2_2" BEL

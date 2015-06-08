@@ -358,25 +358,29 @@ package mlite_pack is
            cache_ram_enable  : in  std_logic;
            cache_ram_byte_we : in  std_logic_vector(15 downto 0);
            cache_ram_address : in  std_logic_vector(31 downto 2);
+           cache_ram_address_out : out  std_logic_vector(20 downto 4);
            cache_ram_data_w  : in  std_logic_vector(127 downto 0);
-           cache_ram_data_r  : out std_logic_vector(31 downto 0);
+           cache_ram_data_r  : out std_logic_vector(127 downto 0);
 
            cache_access      : out std_logic;   --access 4KB cache
            cache_checking    : out std_logic;   --checking if cache hit
            cache_miss        : out std_logic;  --cache miss
-		   stall_comp		 : out std_logic);
+           cache_wb          : out std_logic;  --cache wb
+           cache_wb_hold     : out std_logic;  --cache wb
+           stall_comp        : out std_logic);
    end component; --cache
 
    component cache_ram
       generic(block_count : integer := 1);
       port(clk               : in std_logic;
            enable            : in std_logic;
+           c_nothit          : in std_logic;
            write_byte_enable : in std_logic_vector(15 downto 0);
            address           : in std_logic_vector(31 downto 2);
            data_write        : in std_logic_vector(127 downto 0);
-           byte_we_next		 : in std_logic_vector(3 downto 0);
-		   data_read         : out std_logic_vector(127 downto 0);  --cache miss
-		   stall_comp		 : out std_logic);
+           byte_we_next      : in std_logic_vector(3 downto 0);
+           data_read         : out std_logic_vector(127 downto 0);  --cache miss
+           stall_comp        : out std_logic);
 
    end component; --ram
    

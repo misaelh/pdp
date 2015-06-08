@@ -40,7 +40,7 @@ entity plasma is
    generic(log_file    : string := "UNUSED";
            use_cache   : std_logic := '0');
    port(clk          : in std_logic;
-		    reset        : in std_logic;
+        reset        : in std_logic;
 
         uart_write   : out std_logic;
         uart_read    : in std_logic;
@@ -50,6 +50,7 @@ entity plasma is
         data_write   : out std_logic_vector(127 downto 0);
         data_read    : in std_logic_vector(127 downto 0);
         mem_pause_in : in std_logic;
+--        mem_wb   : in std_logic;
         no_ddr_start : out std_logic;
         no_ddr_stop  : out std_logic;
         
@@ -87,8 +88,10 @@ architecture logic of plasma is
    signal cache_ram_enable  : std_logic;
    signal cache_ram_byte_we : std_logic_vector(15 downto 0);
    signal cache_ram_address : std_logic_vector(31 downto 2);
+   signal cache_ram_address_out : std_logic_vector(20 downto 4);
    signal cache_ram_data_w  : std_logic_vector(127 downto 0);
-   signal cache_ram_data_r  : std_logic_vector(31 downto 0);
+   signal cache_ram_data_r  : std_logic_vector(127 downto 0);
+   signal cache_ram_data_r32 : std_logic_vector(31 downto 0);
    
    signal boot_ram_enable   : std_logic;
    signal boot_ram_byte_we  : std_logic_vector(3 downto 0);
@@ -100,8 +103,11 @@ architecture logic of plasma is
    signal cache_checking    : std_logic;
    signal cache_miss        : std_logic;
    signal cache_hit         : std_logic;
-   
-   signal stall_comp		: std_logic;
+
+   signal cache_wb          : std_logic;
+   signal cache_wb_hold     : std_logic;
+   signal stall_comp        : std_logic;
+   signal stall_comp_ff	    : std_logic;
 
 begin  --architecture
 
@@ -110,7 +116,7 @@ begin  --architecture
    cache_hit <= cache_checking and not cache_miss;
    cpu_pause <= (uart_write_busy and enable_uart and write_enable) or  --UART busy
       cache_miss or                                                    --Cache wait
-      (cpu_address(28) and not cache_hit and mem_busy) or stall_comp;  --DDR
+      (cpu_address(28) and not cache_hit and mem_busy) or  stall_comp;  --DDR
    irq_status <= gpioA_in(31) & not gpioA_in(31) &
                  counter_reg(31) & not counter_reg(31) & 
                  counter_reg(18) & not counter_reg(18) &
@@ -157,25 +163,43 @@ begin  --architecture
          cpu_address    => cpu_address(31 downto 2),
          mem_busy       => mem_busy,
 		 
-		 cache_ram_enable  => cache_ram_enable,
-		 cache_ram_byte_we => cache_ram_byte_we,
-		 cache_ram_address => cache_ram_address,
-         cache_ram_data_w  => cache_ram_data_w,
-         cache_ram_data_r  => cache_ram_data_r,
+         cache_ram_enable      => cache_ram_enable,
+         cache_ram_byte_we     => cache_ram_byte_we,
+         cache_ram_address     => cache_ram_address,
+         cache_ram_address_out => cache_ram_address_out,
+         cache_ram_data_w      => cache_ram_data_w,
+         cache_ram_data_r      => cache_ram_data_r,
 		 
-		 cache_access   => cache_access,    --access 4KB cache
+         cache_access   => cache_access,    --access 4KB cache
          cache_checking => cache_checking,  --checking if cache hit
          cache_miss     => cache_miss,     --cache miss
-         stall_comp		=> stall_comp);
+         cache_wb     	=> cache_wb,  --cache wb
+         cache_wb_hold 	=> cache_wb_hold,  --cache wb
+         stall_comp     => stall_comp);
    
          
    end generate; --opt_cache2
 
-   no_ddr_start <= cache_checking;
+   cache_ram_data_r32 <= cache_ram_data_r(31 downto 0)   when cpu_address(3 downto 2) = "00" else
+                         cache_ram_data_r(63 downto 32)  when cpu_address(3 downto 2) = "01" else
+                         cache_ram_data_r(95 downto 64)  when cpu_address(3 downto 2) = "10" else
+                         cache_ram_data_r(127 downto 96) when cpu_address(3 downto 2) = "11";
+
+   process(stall_comp,clk)
+   begin
+     if rising_edge(clk) then
+       stall_comp_ff <= stall_comp;
+     else
+       stall_comp_ff <= stall_comp_ff;
+     end if;
+   end process;
+     
+
+   no_ddr_start <= cache_checking or stall_comp; --or stall_comp or stall_comp_ff;
    no_ddr_stop <= cache_miss;
 
    misc_proc: process(clk, reset, cpu_address, enable_misc,
-      boot_ram_data_r, cache_ram_data_r, data_read, data_read_uart, cpu_pause,
+      boot_ram_data_r, cache_ram_data_r32, data_read, data_read_uart, cpu_pause,
       irq_mask_reg, irq_status, gpio0_reg, write_enable,
       cache_checking,
       gpioA_in, counter_reg, counter_hi_reg, cpu_data_w)
@@ -187,7 +211,7 @@ begin  --architecture
          cpu_data_r <= boot_ram_data_r;
       when "001" =>         --external RAM
          if cache_checking = '1' then
-            cpu_data_r <= cache_ram_data_r; --cache
+            cpu_data_r <= cache_ram_data_r32; --cache
          else
             cpu_data_r <= data_read(31 downto 0); --DDR
          end if;
@@ -244,7 +268,7 @@ begin  --architecture
 
    cache_ram_proc: process(cache_access, cache_miss,
                      address_next, cpu_address,
-                     byte_we_next, cpu_data_w, data_read)
+                     byte_we_next, cpu_data_w, data_read, cache_wb,cache_wb_hold, cpu_byte_we)
    begin
       if cache_access = '1' then    --Check if cache hit or write through
          cache_ram_enable <= '1';
@@ -268,7 +292,11 @@ begin  --architecture
 --         end case;
       elsif cache_miss = '1' then  --Update cache after cache miss
          cache_ram_enable <= '1';
-         cache_ram_byte_we <= ONES(15 downto 0);
+         if cache_wb = '1' or cache_wb_hold = '1' then
+           cache_ram_byte_we <= ZERO(15 downto 0);
+         else
+           cache_ram_byte_we <= ONES(15 downto 0);           
+         end if;
          cache_ram_address(31 downto 2) <= ZERO(31 downto 12) & address_next(11 downto 2);
          case address_next(3 downto 2) is
            when "00" =>
@@ -283,9 +311,9 @@ begin  --architecture
          end case;
       else                         --Disable cache ram when Normal non-cache access
          cache_ram_enable <= '0';
-         cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
-         cache_ram_address(31 downto 2) <= address_next(31 downto 2);
-         cache_ram_data_w <= cpu_data_w & cpu_data_w & cpu_data_w & cpu_data_w;
+         cache_ram_byte_we <= ZERO(11 downto 0) & cpu_byte_we;
+         cache_ram_address(31 downto 2) <= ZERO(31 downto 12) & cpu_address(11 downto 2);
+         cache_ram_data_w <= ZERO & ZERO & ZERO & cpu_data_w;
 		 
       end if;
    end process;
@@ -318,10 +346,15 @@ begin  --architecture
          busy_write   => uart_write_busy,
          data_avail   => uart_data_avail);
 
-      address <= cpu_address(31 downto 2);
-      byte_we <= cpu_byte_we & ZERO(11 downto 0);
-      data_write  <= cpu_data_w & ZERO & ZERO & ZERO;
-      gpio0_out(28 downto 24) <= ZERO(28 downto 24);
+   address <= cpu_address(31 downto 2) when cache_wb = '0' else
+              "00010000000" & cache_ram_address_out & "00";
+--   byte_we <= cpu_byte_we & ZERO(11 downto 0) when cache_wb = '0' else
+   byte_we <= ZERO(15 downto 0) when cache_wb = '0' else
+              ONES(15 downto 0);
+--   data_write  <= cpu_data_w & ZERO & ZERO & ZERO when cache_wb = '0' and cache_wb_hold = '0' else
+--                  cache_ram_data_r;
+   data_write  <= cache_ram_data_r;
+   gpio0_out(28 downto 24) <= ZERO(28 downto 24);
 
 end; --architecture logic
 

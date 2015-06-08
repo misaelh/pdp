@@ -430,6 +430,7 @@ begin
 
       if active = '1' and state_current /= STATE_POWER_ON and
          command /= COMMAND_WRITE and state_prev /= STATE_READ6 then
+         --write_active = '1' and state_prev /= STATE_READ6 then
          pause <= '1';
       else
          pause <= '0';

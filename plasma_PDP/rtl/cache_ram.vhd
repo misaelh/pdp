@@ -33,12 +33,13 @@ entity cache_ram is
    generic( block_count : integer := 1); 
    port(clk               : in std_logic;
         enable            : in std_logic;
+        c_nothit          : in std_logic;
         write_byte_enable : in std_logic_vector(15 downto 0);
         address           : in std_logic_vector(31 downto 2);
         data_write        : in std_logic_vector(127 downto 0);
-		byte_we_next	  : in std_logic_vector(3 downto 0);
+	byte_we_next	  : in std_logic_vector(3 downto 0);
         data_read         : out std_logic_vector(127 downto 0);
-	stall_comp		  : out std_logic);
+	stall_comp        : out std_logic);
 end; --entity ram
 
 architecture logic of cache_ram is
@@ -82,7 +83,7 @@ architecture logic of cache_ram is
    signal stall_aux			:std_logic;
 
 begin
-   block_enable<= "00000001" when (enable='1') and (block_sel="000") else 
+   block_enable<= "00000001" when ((enable='1') or state = STATE_WRITE) and not (c_nothit = '1') and (block_sel="000") else 
                   "00000010" when (enable='1') and (block_sel="001") else 
                   "00000100" when (enable='1') and (block_sel="010") else 
                   "00001000" when (enable='1') and (block_sel="011") else 
@@ -117,10 +118,10 @@ begin
    begin
 		block_addr_aux <= block_addr;
 		stall_aux <= '0';
+                read_word <= lsb_word;
 		case state is
 			when STATE_READ =>
-				read_word <= lsb_word;
-				if we /= '1' AND write_byte_enable(3 downto 0)/="0000" AND enable='1' then
+				if write_byte_enable(4) /= '1' and write_byte_enable(3 downto 0)/="0000" AND enable='1' then
 					state_next <= STATE_WRITE;
 				else 
 					state_next <= STATE_READ;
@@ -155,11 +156,15 @@ begin
 	end if;
 	end process;
    
-   proc_be: process (write_byte_enable, data_write, read_word, state, state_next) is
-   begin 
-	if state=STATE_WRITE or write_byte_enable="0000000000001111" then
+   proc_be: process (write_byte_enable, data_write, read_word, state, state_next, addr_block_aux,address) is
+   begin
+     block4_di  <= ZERO(31 downto 0);
+     block3_di  <= ZERO(31 downto 0);
+     block2_di  <= ZERO(31 downto 0);
+     block1_di  <= ZERO(31 downto 0);
+	if state=STATE_WRITE then--or write_byte_enable="0000000000001111" then
 		byte_enable <= "0000";
-		 case address(3 downto 2) is
+		 case addr_block_aux(1 downto 0) is
            when "00" =>
 		   byte_enable(0) <= '1';
              --cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
@@ -178,6 +183,27 @@ begin
              block1_di  <= read_word;
            when others =>
          end case;
+	--elsif write_byte_enable="0000000000001111" then
+	--	byte_enable <= "0000";
+	--	 case address(3 downto 2) is
+        --   when "00" =>
+	--	   byte_enable(0) <= '1';
+        --     --cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
+        --     block4_di  <= read_word;
+        --   when "01" =>
+	--	   byte_enable(1) <= '1';
+        --     --cache_ram_byte_we <= ZERO(7 downto 0) & byte_we_next & ZERO(3 downto 0);
+        --     block3_di  <= read_word;
+        --   when "10" =>
+	--	   byte_enable(2) <= '1';
+        --     --cache_ram_byte_we <= ZERO(3 downto 0) & byte_we_next & ZERO(7 downto 0);
+        --     block2_di  <= read_word;
+        --   when "11" =>
+	--	   byte_enable(3) <= '1';
+        --     --cache_ram_byte_we <= byte_we_next & ZERO(11 downto 0);
+        --     block1_di  <= read_word;
+        --   when others =>
+        --         end case;
 	else
 		block1_di  <= data_write(127 downto 96);
 		block2_di  <= data_write(95 downto 64);

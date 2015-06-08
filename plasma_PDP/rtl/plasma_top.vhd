@@ -117,6 +117,7 @@ architecture logic of plasma_top is
    signal data_read    : std_logic_vector(127 downto 0);
    signal byte_we      : std_logic_vector(15 downto 0);
    signal pause        : std_logic;
+--   signal write_prev   : std_logic;
    signal no_ddr_start : std_logic;
    signal no_ddr_stop  : std_logic;
 
@@ -173,6 +174,7 @@ begin  --architecture
          data_write   => data_write,
          data_read    => data_read,
          mem_pause_in => pause,
+--         mem_wb       => write_prev,
          no_ddr_start => no_ddr_start,
          no_ddr_stop  => no_ddr_stop, 
 
@@ -193,6 +195,7 @@ begin  --architecture
          no_start  => no_ddr_start,
          no_stop   => no_ddr_stop,
          pause     => pause,
+--         write_prev     => write_prev,
          init_done => init_done,
 
          SD_CK_P   => SD_CK_P,    --clock_positive

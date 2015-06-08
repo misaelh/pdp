@@ -18,6 +18,7 @@ entity ddr_ctrl_top is
       no_start  : in std_logic;
       no_stop   : in std_logic;
       pause     : out std_logic;
+--      write_prev : out std_logic;
       init_done : out std_logic;
                 
       SD_CK_P   : out std_logic;     --clock_positive
@@ -66,6 +67,7 @@ architecture logic of ddr_ctrl_top is
            no_start : in std_logic;
            no_stop  : in std_logic;
            pause    : out std_logic;
+--           write_prev    : out std_logic;
 
            SD_CK_P  : out std_logic;     --clock_positive
            SD_CK_N  : out std_logic;     --clock_negative
@@ -132,6 +134,7 @@ begin
          no_start => no_start,
          no_stop  => no_stop,
          pause    => pause_ddr,
+--         write_prev => write_prev,
 
          SD_CK_P  => SD_CK_P,    --clock_positive
          SD_CK_N  => SD_CK_N,    --clock_negative

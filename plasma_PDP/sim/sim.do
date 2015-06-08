@@ -41,6 +41,32 @@ log -r /*
 add wave -group plasma_top sim:/sim_tb_top/u1_plasma_top/*
 add wave -group ddr sim:/sim_tb_top/u1_plasma_top/u2_ddr/*
 
+quietly virtual signal -install sim:/sim_tb_top/u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next { sim:/sim_tb_top/u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_current(19 downto 8)} PC
+quietly virtual signal -install sim:/sim_tb_top/u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next { sim:/sim_tb_top/u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_current(19 downto 4)} PC_
+quietly virtual signal -install sim:/sim_tb_top/u1_plasma_top { sim:/sim_tb_top/u1_plasma_top/SD_A(12 downto 1)} DDR_ADDR
+quietly virtual signal -install sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache { sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_address(13 downto 2)} CACHE_ADDR
+quietly virtual signal -install sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache { sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_address(14 downto 2)} CACHE_ADDR001
+quietly virtual signal -install sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache { sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_address(10 downto 2)} CACHE_ADDR002
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/PC_
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/u1_cpu/u2_mem_ctrl/opcode_out
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/u1_cpu/u1_pc_next/pc_current
+add wave  sim:/sim_tb_top/u1_plasma_top/DDR_ADDR
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_A
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_RAS
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_CAS
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_WE
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_DQ
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_UDM
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_UDQS
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_LDM
+add wave  sim:/sim_tb_top/u1_plasma_top/SD_LDQS
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_enable
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_byte_we
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/CACHE_ADDR002
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_address
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_data_w
+add wave  sim:/sim_tb_top/u1_plasma_top/u1_plasma/opt_cache2/u_cache/cache_ram_data_r
+
 #Change radix to Hexadecimal#
 radix hex
 #Supress Numeric Std package and Arith package warnings.#
@@ -52,5 +78,5 @@ radix hex
 set NumericStdNoWarnings 1
 set StdArithNoWarnings 1
 
-run 200us
+run 1ms
 stop
