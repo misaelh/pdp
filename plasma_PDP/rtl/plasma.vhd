@@ -105,6 +105,7 @@ architecture logic of plasma is
    signal cache_hit         : std_logic;
 
    signal cache_wb          : std_logic;
+   signal cache_wb_ff       : std_logic;
    signal cache_wb_hold     : std_logic;
    signal stall_comp        : std_logic;
    signal stall_comp_ff	    : std_logic;
@@ -195,7 +196,7 @@ begin  --architecture
    end process;
      
 
-   no_ddr_start <= cache_checking or stall_comp; --or stall_comp or stall_comp_ff;
+   no_ddr_start <= cache_checking or stall_comp or cache_access; --or stall_comp or stall_comp_ff;
    no_ddr_stop <= cache_miss;
 
    misc_proc: process(clk, reset, cpu_address, enable_misc,
@@ -346,14 +347,21 @@ begin  --architecture
          busy_write   => uart_write_busy,
          data_avail   => uart_data_avail);
 
-   address <= cpu_address(31 downto 2) when cache_wb = '0' else
+   address <= cpu_address(31 downto 2) when cache_wb_ff = '0' else
               "00010000000" & cache_ram_address_out & "00";
 --   byte_we <= cpu_byte_we & ZERO(11 downto 0) when cache_wb = '0' else
-   byte_we <= ZERO(15 downto 0) when cache_wb = '0' else
+   byte_we <= ZERO(15 downto 0) when cache_wb_ff = '0' else
               ONES(15 downto 0);
 --   data_write  <= cpu_data_w & ZERO & ZERO & ZERO when cache_wb = '0' and cache_wb_hold = '0' else
 --                  cache_ram_data_r;
-   data_write  <= cache_ram_data_r;
+
+   process (clk)
+   begin
+     if rising_edge(clk) then
+       data_write  <= cache_ram_data_r;
+       cache_wb_ff <= cache_wb;
+     end if;
+   end process;
    gpio0_out(28 downto 24) <= ZERO(28 downto 24);
 
 end; --architecture logic

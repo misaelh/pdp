@@ -235,7 +235,7 @@ begin
          c_stall_ff <= '0';
       elsif rising_edge(clk) then
          state_reg <= state_next;
-         cache_ram_address_reg <= cache_ram_address_reg;
+         --cache_ram_address_reg <= cache_ram_address_reg;
          byte_we <= byte_we_next;
 
          if state_reg = STATE_WB_WR then
@@ -250,8 +250,8 @@ begin
          if state = STATE_IDLE and state_reg /= STATE_MISSED then
            cache_tag_reg <= cache_tag_in;
          end if;
-         if state_next = STATE_CHECKING then
-           cache_ram_address_reg <= cache_tag_reg & address_next(11 downto 4);
+         if state = STATE_WB then
+           cache_ram_address_reg <= cache_tag_out & address_next(11 downto 4);
          end if;
       end if;
 
