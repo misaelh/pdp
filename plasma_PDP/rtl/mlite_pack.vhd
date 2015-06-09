@@ -352,6 +352,7 @@ package mlite_pack is
            reset             : in  std_logic;
            address_next      : in  std_logic_vector(31 downto 2);
            byte_we_next      : in  std_logic_vector(3 downto 0);
+           byte_we           : in  std_logic_vector(3 downto 0);
            cpu_address       : in  std_logic_vector(31 downto 2);
            mem_busy          : in  std_logic;
 		   
@@ -373,6 +374,7 @@ package mlite_pack is
            write_byte_enable : in std_logic_vector(15 downto 0);
            address           : in std_logic_vector(31 downto 2);
            data_write        : in std_logic_vector(127 downto 0);
+           byte_we_next      : in  std_logic_vector(3 downto 0);
            data_read         : out std_logic_vector(127 downto 0));
    end component; --ram
    

@@ -152,6 +152,7 @@ begin  --architecture
          reset          => reset,
          address_next   => address_next,
          byte_we_next   => byte_we_next,
+         byte_we        => cpu_byte_we,
          cpu_address    => cpu_address(31 downto 2),
          mem_busy       => mem_busy,
 		 

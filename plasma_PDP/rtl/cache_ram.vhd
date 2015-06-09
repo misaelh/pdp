@@ -63,7 +63,7 @@ architecture logic of cache_ram is
    signal byte_enable: std_logic_vector(3 downto 0);
 --   signal data_r: std_logic_vector(63 downto 0);
 
-   signal block1_di, block2_di, block3_di, block4_di, lsb_word: std_logic_vector(31 downto 0);
+   signal block1_di, block2_di, block3_di, block0_di, lsb_word: std_logic_vector(31 downto 0);
    signal we: std_logic;
    signal wbe_aux: std_logic_vector(3 downto 0);
    signal addr_block_aux: std_logic_vector(10 downto 0);
@@ -106,12 +106,12 @@ begin
 
    lsb_word <= data_write(31 downto 0);
 
-   proc_be: process (write_byte_enable) is
-   begin 
-     for I in 0 to 3 loop
-         byte_enable(I) <= write_byte_enable(4*I+3) AND write_byte_enable(4*I+2) AND write_byte_enable(4*I+1) AND write_byte_enable(4*I);
-     end loop;
-   end process;
+   --proc_be: process (write_byte_enable) is
+   --begin 
+   --  for I in 0 to 3 loop
+   --      byte_enable(I) <= write_byte_enable(4*I+3) AND write_byte_enable(4*I+2) AND write_byte_enable(4*I+1) AND write_byte_enable(4*I);
+   --  end loop;
+   --end process;
 
    proc_cache_hwords: process(state, state_next, write_byte_enable, enable, block_do, lsb_word, address, clk, wbe_aux,
                               addr_block_aux, block_addr) is
