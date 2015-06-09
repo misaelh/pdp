@@ -366,7 +366,7 @@ begin
    c_nothit      <= c_miss and c_checking;
    c_enable      <= '1' when state_reg = STATE_WB_WAIT else cache_ram_enable;
    c_byte_we     <= ZERO(11 downto 0) & byte_we_hold when state_reg = STATE_WB_WAIT else cache_ram_byte_we;
-   c_address     <= ZERO(31 downto 12) & cpu_address(11 downto 2) when state_reg = STATE_WB_WAIT else cache_ram_address;
+   c_address     <= ZERO(31 downto 12) & cpu_address(11 downto 2) when state_reg = STATE_WB_WAIT and byte_we_hold /= "0000" else cache_ram_address;
 --   c_data_w      <= when state = STATE_WB_WAIT else cache_ram_data_w;
    
 	cache_data: cache_ram     -- cache data storage

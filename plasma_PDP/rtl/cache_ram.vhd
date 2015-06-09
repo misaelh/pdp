@@ -105,12 +105,14 @@ begin
    --block3_di <= ZERO(31 downto 0);
    --block4_di <= ZERO(31 downto 0);
    we <= write_byte_enable(3) AND write_byte_enable(2) AND write_byte_enable(1) AND write_byte_enable(0);
-   lsb_word <= data_write(31 downto 0);
 
    proc_do: process (block_do, block_sel_buf) is
    begin
      --data_r <= block_do(conv_integer(block_sel_buf))(63 downto 0);
-         data_read <= block_do(conv_integer(block_sel_buf));
+     data_read <= block_do(conv_integer(block_sel_buf))(31 downto 0)
+                  & block_do(conv_integer(block_sel_buf))(63 downto 32)
+                  & block_do(conv_integer(block_sel_buf))(95 downto 64)
+                  & block_do(conv_integer(block_sel_buf))(127 downto 96);
    end process;
    
    proc_cache_hwords: process(state, state_next, write_byte_enable, enable, block_do, we, lsb_word, address, clk, wbe_aux,
@@ -149,10 +151,12 @@ begin
 		wbe_aux <= write_byte_enable(3 downto 0);
 		state <= state_next;
 		addr_block_aux <= address(12 downto 2);
+                lsb_word <= data_write(31 downto 0);
 	else
 		wbe_aux <= wbe_aux;
 		state <=state;
 		addr_block_aux <= addr_block_aux;
+                lsb_word <= lsb_word;
 	end if;
 	end process;
    

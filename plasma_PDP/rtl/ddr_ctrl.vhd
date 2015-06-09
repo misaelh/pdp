@@ -187,7 +187,7 @@ begin
             end if;
 
          when STATE_IDLE =>
-            if refresh_cnt(7) = '1' then
+            if refresh_cnt(7 downto 4) = "0111" or refresh_cnt(7) = '1' then
                state_current := STATE_PRECHARGE;
                command := COMMAND_AUTO_REFRESH;
             elsif active = '1' and no_start = '0' then
@@ -199,7 +199,7 @@ begin
             state_current := STATE_ROW_ACTIVE;
 
          when STATE_ROW_ACTIVE =>
-            if refresh_cnt(7) = '1' then
+            if refresh_cnt(7 downto 4) = "0111" or refresh_cnt(7) = '1' then
                if write_prev = '0' then
                   state_current := STATE_PRECHARGE;
                   command := COMMAND_PRECHARGE;
