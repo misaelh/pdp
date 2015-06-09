@@ -107,7 +107,7 @@ begin
                state_next <= STATE_CHECKING;  --need to check if match
             else
                cache_we <= '1';               --update cache tag
-               state_next <= STATE_WAITING;
+               state_next <= STATE_MISSED;
             end if;
          else
             cache_access <= '0';
@@ -125,11 +125,11 @@ begin
          state_next <= state;
       end if;
 
-      if byte_we_next = "0000" then  --read or 32-bit write
+ --     if byte_we_next = "0000" then  --read or 32-bit write
          cache_tag_in <= address_next(20 downto 12);
-      else
-         cache_tag_in <= ONES(8 downto 0);  --invalid tag
-      end if;
+ --     else
+ --        cache_tag_in <= ONES(8 downto 0);  --invalid tag
+ --     end if;
 
       if reset = '1' then
          state_reg <= STATE_IDLE;
@@ -249,6 +249,7 @@ begin
          write_byte_enable => cache_ram_byte_we,
          address           => cache_ram_address,
          data_write        => cache_ram_data_w,
+         byte_we_next      => byte_we_next,
          data_read         => cache_ram_data_r128);
 
    cache_ram_data_r <= cache_ram_data_r128(31 downto 0)   when cpu_address(3 downto 2) = "00" else
