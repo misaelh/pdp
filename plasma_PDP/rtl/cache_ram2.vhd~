@@ -33,24 +33,21 @@ entity cache_ram is
    generic( block_count : integer := 1); 
    port(clk               : in std_logic;
         enable            : in std_logic;
-        write_byte_enable : in std_logic_vector(15 downto 0);
+        write_byte_enable : in std_logic_vector(3 downto 0);
         address           : in std_logic_vector(31 downto 2);
-        data_write        : in std_logic_vector(127 downto 0);
-        data_read         : out std_logic_vector(127 downto 0);
-        cache_wr          : in  std_logic;
-	stall_comp        : out std_logic);
+        data_write        : in std_logic_vector(31 downto 0);
+        data_read         : out std_logic_vector(31 downto 0));
 end; --entity ram
 
 architecture logic of cache_ram is
    --type
-   type mem32_vector IS ARRAY (NATURAL RANGE<>) OF std_logic_vector(127 downto 0);
+   type mem32_vector IS ARRAY (NATURAL RANGE<>) OF std_logic_vector(31 downto 0);
 
    --Which 8KB block
    alias block_sel: std_logic_vector(2 downto 0) is address(15 downto 13);
 
    --Address within a 8KB block (without lower two bits)
-   alias block_addr : std_logic_vector(8 downto 0) is address(12 downto 4);
---   alias block_addr : std_logic_vector(10 downto 0) is address(12 downto 2);
+   alias block_addr : std_logic_vector(10 downto 0) is address(12 downto 2);
 
    --Block enable with 1 bit per memory block
    signal block_enable: std_logic_vector(7 downto 0);
@@ -61,28 +58,8 @@ architecture logic of cache_ram is
    --Remember which block was selected
    signal block_sel_buf: std_logic_vector(2 downto 0);
 
-   signal byte_enable: std_logic_vector(3 downto 0);
---   signal data_r: std_logic_vector(63 downto 0);
-
-	signal block1_di, block2_di, block3_di, block4_di, lsb_word: std_logic_vector(31 downto 0);
-	signal we: std_logic;
-	signal wbe_aux: std_logic_vector(3 downto 0);
-	signal addr_block_aux: std_logic_vector(10 downto 0);
-	signal block_addr_aux : std_logic_vector(8 downto 0);
-	
-   subtype state_type is std_logic_vector(1 downto 0);
-   constant STATE_IDLE     	: state_type := "00";
-   constant STATE_READ 		: state_type := "01";
-   constant STATE_WRITE   	: state_type := "10";
-
-   signal state        	   : state_type;
-   signal state_next       : state_type;
-   signal read_word, read_word_reg 		: std_logic_vector(31 downto 0);
-   
-   signal stall_aux			:std_logic;
-
 begin
-   block_enable<= "00000001" when ((enable='1') and (block_sel="000")) or ((state = STATE_WRITE) and (cache_wr = '1'))  else 
+   block_enable<= "00000001" when (enable='1') and (block_sel="000") else 
                   "00000010" when (enable='1') and (block_sel="001") else 
                   "00000100" when (enable='1') and (block_sel="010") else 
                   "00001000" when (enable='1') and (block_sel="011") else 
@@ -101,123 +78,14 @@ begin
 
    proc_do: process (block_do, block_sel_buf) is
    begin
-     --data_r <= block_do(conv_integer(block_sel_buf))(63 downto 0);
-         data_read <= block_do(conv_integer(block_sel_buf));
+      data_read <= block_do(conv_integer(block_sel_buf));
    end process;
-   
-   proc_cache_hwords: process(state, state_next, write_byte_enable, enable, block_do, we, lsb_word, address, clk, wbe_aux,
-   addr_block_aux, block_addr) is
-   begin
-		block_addr_aux <= block_addr;
-		stall_aux <= '0';
-                read_word <= lsb_word;
-		case state is
-			when STATE_READ =>
-				if write_byte_enable(4) /= '1' and write_byte_enable(3 downto 0)/="0000" AND enable='1' then
-					state_next <= STATE_WRITE;
-				else 
-					state_next <= STATE_READ;
-				end if;
-			when STATE_WRITE =>
-				block_addr_aux <= addr_block_aux(10 downto 2);
-				stall_aux <= '1';
-				case addr_block_aux(1 downto 0) is
-					when "00" => read_word <= block_do(0)(31 downto 0);
-					when "01" => read_word <= block_do(0)(63 downto 32);
-					when "10" => read_word <= block_do(0)(95 downto 64);
-					when "11" => read_word <= block_do(0)(127 downto 96);
-					when others=>
-				end case;
-				for idx in 0 to 3 loop
-					if wbe_aux(idx)='1' then 
-						read_word(((idx+1)*8-1) downto (idx*8)) <= lsb_word(((idx+1)*8-1) downto (idx*8));
-					end if;
-				end loop;
-				state_next <= STATE_READ;
-			when others=>
-				state_next <= STATE_READ;
-			end case;
-	if	rising_edge(clk) then
-		wbe_aux <= write_byte_enable(3 downto 0);
-		state <= state_next;
-		addr_block_aux <= address(12 downto 2);
-                lsb_word <= data_write(31 downto 0);
-	else
-		wbe_aux <= wbe_aux;
-		state <=state;
-		addr_block_aux <= addr_block_aux;
-                lsb_word <= lsb_word;
-	end if;
-	end process;
-   
-   proc_be: process (write_byte_enable, data_write, read_word, state, state_next, addr_block_aux,address) is
-   begin
-     block4_di  <= ZERO(31 downto 0);
-     block3_di  <= ZERO(31 downto 0);
-     block2_di  <= ZERO(31 downto 0);
-     block1_di  <= ZERO(31 downto 0);
-	if state=STATE_WRITE then--or write_byte_enable="0000000000001111" then
-		byte_enable <= "0000";
-		 case addr_block_aux(1 downto 0) is
-           when "00" =>
-		   byte_enable(0) <= '1';
-             --cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
-             block4_di  <= read_word;
-           when "01" =>
-		   byte_enable(1) <= '1';
-             --cache_ram_byte_we <= ZERO(7 downto 0) & byte_we_next & ZERO(3 downto 0);
-             block3_di  <= read_word;
-           when "10" =>
-		   byte_enable(2) <= '1';
-             --cache_ram_byte_we <= ZERO(3 downto 0) & byte_we_next & ZERO(7 downto 0);
-             block2_di  <= read_word;
-           when "11" =>
-		   byte_enable(3) <= '1';
-             --cache_ram_byte_we <= byte_we_next & ZERO(11 downto 0);
-             block1_di  <= read_word;
-           when others =>
-         end case;
-	--elsif write_byte_enable="0000000000001111" then
-	--	byte_enable <= "0000";
-	--	 case address(3 downto 2) is
-        --   when "00" =>
-	--	   byte_enable(0) <= '1';
-        --     --cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
-        --     block4_di  <= read_word;
-        --   when "01" =>
-	--	   byte_enable(1) <= '1';
-        --     --cache_ram_byte_we <= ZERO(7 downto 0) & byte_we_next & ZERO(3 downto 0);
-        --     block3_di  <= read_word;
-        --   when "10" =>
-	--	   byte_enable(2) <= '1';
-        --     --cache_ram_byte_we <= ZERO(3 downto 0) & byte_we_next & ZERO(7 downto 0);
-        --     block2_di  <= read_word;
-        --   when "11" =>
-	--	   byte_enable(3) <= '1';
-        --     --cache_ram_byte_we <= byte_we_next & ZERO(11 downto 0);
-        --     block1_di  <= read_word;
-        --   when others =>
-        --         end case;
-	else
-		block1_di  <= data_write(127 downto 96);
-		block2_di  <= data_write(95 downto 64);
-		block3_di  <= data_write(63 downto 32);
-		block4_di  <= data_write(31 downto 0);
-		for I in 0 to 3 loop
-			byte_enable(I) <= write_byte_enable(4*I+3) AND write_byte_enable(4*I+2) AND write_byte_enable(4*I+1) AND write_byte_enable(4*I);
-		end loop;
-	end if;     
-	if state_next=STATE_WRITE then
-		byte_enable <= "0000";
-	end if;
-   end process;
-   stall_comp <= stall_aux;
-   
-   -- BLOCKS generation
+	
+	-- BLOCKS generation
    block0: if (block_count > 0) generate
 	begin
 
-    ram_byte3 : RAMB16_S36
+    ram_byte3 : RAMB16_S9
    generic map (
 INIT_00 => X"000000000000000000000000000000000000000000000000000000000c080400",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -285,18 +153,17 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(127 downto 96), 
-      DOP  => open,
-      ADDR => block_addr_aux,
+      DO   => block_do(0)(31 downto 24), 
+      DOP  => open, 
+      ADDR => block_addr,
       CLK  => clk, 
-      --DI   => data_write(127 downto 96),
-      DI   => block1_di,
-      DIP  => ZERO(3 downto 0),
+      DI   => data_write(31 downto 24),
+      DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => byte_enable(3));
+      WE   => write_byte_enable(3));
 
-    ram_byte2 : RAMB16_S36
+    ram_byte2 : RAMB16_S9
    generic map (
 INIT_00 => X"000000000000000000000000000000000000000000000000000000000d090501",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -364,19 +231,17 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(95 downto 64),
+      DO   => block_do(0)(23 downto 16),
       DOP  => open, 
-      ADDR => block_addr_aux,
+      ADDR => block_addr,
       CLK  => clk, 
-      --DI   => data_write(95 downto 64),
-      DI   => block2_di,
-      DIP  => ZERO(3 downto 0),
+      DI   => data_write(23 downto 16),
+      DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => byte_enable(2));
-      --WE   => write_byte_enable(2));
+      WE   => write_byte_enable(2));
 	
-    ram_byte1 : RAMB16_S36
+    ram_byte1 : RAMB16_S9
    generic map (
 INIT_00 => X"000000000000000000000000000000000000000000000000000000000e0a0602",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -444,19 +309,17 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(63 downto 32),
+      DO   => block_do(0)(15 downto 8),
       DOP  => open, 
-      ADDR => block_addr_aux,
+      ADDR => block_addr,
       CLK  => clk, 
-      --DI   => data_write(63 downto 32),
-      DI   => block3_di,
-      DIP  => ZERO(3 downto 0),
+      DI   => data_write(15 downto 8),
+      DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => byte_enable(1));
-      --WE   => write_byte_enable(1));
+      WE   => write_byte_enable(1));
 
-    ram_byte0 : RAMB16_S36
+    ram_byte0 : RAMB16_S9
    generic map (
 INIT_00 => X"000000000000000000000000000000000000000000000000000000000f0b0703",
 INIT_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -524,17 +387,15 @@ INIT_3E => X"0000000000000000000000000000000000000000000000000000000000000000",
 INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
 )
     port map (
-      DO   => block_do(0)(31 downto 0),
+      DO   => block_do(0)(7 downto 0),
       DOP  => open, 
-      ADDR => block_addr_aux,
+      ADDR => block_addr,
       CLK  => clk, 
-      --DI   => data_write(31 downto 0),
-      DI   => block4_di,
-      DIP  => ZERO(3 downto 0),
+      DI   => data_write(7 downto 0),
+      DIP  => ZERO(0 downto 0),
       EN   => block_enable(0),
       SSR  => ZERO(0),
-      WE   => byte_enable(0));
-      --WE   => write_byte_enable(0));
+      WE   => write_byte_enable(0));
    end generate; --block0
 	
 
@@ -2764,3 +2625,4 @@ INIT_3F => X"0000000000000000000000000000000000000000000000000000000000000000"
    end generate; --block7
 
 end; --architecture logic
+

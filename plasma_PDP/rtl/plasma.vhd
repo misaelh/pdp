@@ -100,6 +100,7 @@ architecture logic of plasma is
    signal cache_checking    : std_logic;
    signal cache_miss        : std_logic;
    signal cache_hit         : std_logic;
+   signal stall_comp        : std_logic;
 
 begin  --architecture
 
@@ -108,7 +109,7 @@ begin  --architecture
    cache_hit <= cache_checking and not cache_miss;
    cpu_pause <= (uart_write_busy and enable_uart and write_enable) or  --UART busy
       cache_miss or                                                    --Cache wait
-      (cpu_address(28) and not cache_hit and mem_busy);                --DDR
+      (cpu_address(28) and not cache_hit and mem_busy) or stall_comp;                --DDR
    irq_status <= gpioA_in(31) & not gpioA_in(31) &
                  counter_reg(31) & not counter_reg(31) & 
                  counter_reg(18) & not counter_reg(18) &
@@ -155,21 +156,22 @@ begin  --architecture
          cpu_address    => cpu_address(31 downto 2),
          mem_busy       => mem_busy,
 		 
-		 cache_ram_enable  => cache_ram_enable,
-		 cache_ram_byte_we => cache_ram_byte_we,
-		 cache_ram_address => cache_ram_address,
+         cache_ram_enable  => cache_ram_enable,
+         cache_ram_byte_we => cache_ram_byte_we,
+         cache_ram_address => cache_ram_address,
          cache_ram_data_w  => cache_ram_data_w,
          cache_ram_data_r  => cache_ram_data_r,
 		 
-		 cache_access   => cache_access,    --access 4KB cache
+         cache_access   => cache_access,    --access 4KB cache
          cache_checking => cache_checking,  --checking if cache hit
-         cache_miss     => cache_miss);     --cache miss
-         
+         cache_miss     => cache_miss,     --cache miss
+         stall_comp     => stall_comp);
+
    
          
    end generate; --opt_cache2
 
-   no_ddr_start <= cache_checking;
+   no_ddr_start <= cache_checking or stall_comp;
    no_ddr_stop <= cache_miss;
 
    misc_proc: process(clk, reset, cpu_address, enable_misc,

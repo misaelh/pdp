@@ -33,15 +33,17 @@ entity cache is
 
         cache_access   		: out std_logic;   --access 4KB cache
         cache_checking 		: out std_logic;   --checking if cache hit
-        cache_miss     		: out std_logic);  --cache miss
+        cache_miss     		: out std_logic;   --cache miss
+        stall_comp              : out std_logic);
 end; --cache
 
 architecture logic of cache is
-   subtype state_type is std_logic_vector(1 downto 0);
-   constant STATE_IDLE     : state_type := "00";
-   constant STATE_CHECKING : state_type := "01";
-   constant STATE_MISSED   : state_type := "10";
-   constant STATE_WAITING  : state_type := "11";
+   subtype state_type is std_logic_vector(2 downto 0);
+   constant STATE_IDLE     : state_type := "000";
+   constant STATE_CHECKING : state_type := "001";
+   constant STATE_MISSED   : state_type := "010";
+   constant STATE_WAITING  : state_type := "011";
+   constant STATE_WR_CHECK : state_type := "100";
 
    signal state_reg        : state_type;
    signal state            : state_type;
@@ -52,6 +54,7 @@ architecture logic of cache is
    signal cache_tag_reg    : std_logic_vector(8 downto 0);
    signal cache_tag_out    : std_logic_vector(8 downto 0);
    signal cache_we         : std_logic;
+   signal cache_wr         : std_logic;
    signal cache_ram_data_r128 : std_logic_vector(127 downto 0);
 begin
 
@@ -62,6 +65,8 @@ begin
       cpu_address)                              --Stage3
    begin
 
+      cache_wr <= '0';
+     
       case state_reg is
       when STATE_IDLE =>            --cache idle
          cache_checking <= '0';
@@ -92,6 +97,19 @@ begin
          else
             state <= STATE_IDLE;
          end if;
+      when STATE_WR_CHECK =>        --current write in cached range, check if match
+         cache_checking <= '0';
+         cache_miss <= '0';
+         if cache_tag_out /= cache_tag_reg or cache_tag_out = ONES(8 downto 0) then
+            cache_wr <= '0';
+         else
+            cache_wr <= '1';
+         end if;
+         if mem_busy = '1' then
+            state <= STATE_WAITING;
+         else
+            state <= STATE_IDLE;
+         end if;
       when others =>
          cache_checking <= '0';
          cache_miss <= '0';
@@ -106,8 +124,8 @@ begin
                cache_we <= '0';
                state_next <= STATE_CHECKING;  --need to check if match
             else
-               cache_we <= '1';               --update cache tag
-               state_next <= STATE_WAITING;
+               cache_we <= '0';
+               state_next <= STATE_WR_CHECK;
             end if;
          else
             cache_access <= '0';
@@ -125,11 +143,11 @@ begin
          state_next <= state;
       end if;
 
-      if byte_we_next = "0000" then  --read or 32-bit write
+--      if byte_we_next = "0000" then  --read or 32-bit write
          cache_tag_in <= address_next(20 downto 12);
-      else
-         cache_tag_in <= ONES(8 downto 0);  --invalid tag
-      end if;
+--      else
+--         cache_tag_in <= ONES(8 downto 0);  --invalid tag
+--      end if;
 
       if reset = '1' then
          state_reg <= STATE_IDLE;
@@ -249,7 +267,9 @@ begin
          write_byte_enable => cache_ram_byte_we,
          address           => cache_ram_address,
          data_write        => cache_ram_data_w,
-         data_read         => cache_ram_data_r128);
+         data_read         => cache_ram_data_r128,
+         cache_wr          => cache_wr,
+         stall_comp        => stall_comp);
 
    cache_ram_data_r <= cache_ram_data_r128(31 downto 0)   when cpu_address(3 downto 2) = "00" else
                        cache_ram_data_r128(63 downto 32)  when cpu_address(3 downto 2) = "01" else
