@@ -114,6 +114,7 @@ architecture logic of ddr_ctrl is
    constant STATE_READ4        : ddr_state_type := "1001";
    constant STATE_READ5        : ddr_state_type := "1010";
    constant STATE_READ6        : ddr_state_type := "1011";
+   constant STATE_READ7        : ddr_state_type := "1100";
    constant STATE_PRECHARGE    : ddr_state_type := "0111";
    constant STATE_PRECHARGE2   : ddr_state_type := "1000";
 
@@ -239,11 +240,16 @@ begin
             state_current := STATE_READ6;
 
          when STATE_READ6 =>
+--            if no_stop = '0' then
+               state_current := STATE_READ7;
+--            end if;
+
+         when STATE_READ7 =>
             if no_stop = '0' then
                state_current := STATE_ROW_ACTIVE;
             end if;
 
-         when STATE_PRECHARGE =>
+        when STATE_PRECHARGE =>
             state_current := STATE_PRECHARGE2;
 
          when STATE_PRECHARGE2 =>
@@ -429,7 +435,7 @@ begin
       SD_WE   <= command(0);           --write_enable
 
       if active = '1' and state_current /= STATE_POWER_ON and
-         command /= COMMAND_WRITE and state_prev /= STATE_READ6 then
+         command /= COMMAND_WRITE and state_prev /= STATE_READ7 then
          pause <= '1';
       else
          pause <= '0';

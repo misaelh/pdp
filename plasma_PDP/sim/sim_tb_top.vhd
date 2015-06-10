@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use std.textio.all;
 
 library unisim;
 use unisim.vcomponents.all;
@@ -157,5 +158,40 @@ begin
       We_n  => ddr_we_n,
       Dm    => ddr_dm
       );
+
+
+writing :
+process
+    file      outfile  : text is out "out.txt";  --declare output file
+    variable  outline  : line;   --line number declaration
+    variable  pc_old   : std_logic_vector(31 downto 2);
+    variable  linenumber : integer:=1;
+    alias PC is
+    << signal .sim_tb_top.u1_plasma_top.u1_plasma.u1_cpu.u1_pc_next.pc_current : std_logic_vector(31 downto 2) >>;
+    alias OPCODE is
+    << signal .sim_tb_top.u1_plasma_top.u1_plasma.u1_cpu.u2_mem_ctrl.opcode_out  : std_logic_vector(31 downto 0) >>;
+    alias REG1 is
+    << signal .sim_tb_top.u1_plasma_top.u1_plasma.u1_cpu.u4_reg_bank.reg_source_out  : std_logic_vector(31 downto 0) >>;
+    alias REG2 is
+    << signal .sim_tb_top.u1_plasma_top.u1_plasma.u1_cpu.u4_reg_bank.reg_target_out  : std_logic_vector(31 downto 0) >>;
+begin
+  pc_old := PC;
+  wait until ddr_clk_n = '0' and ddr_clk_n'event;
+  if PC /= pc_old then
+--write(linenumber,value(real type),justified(side),field(width),digits(natural));
+    write(outline, to_hstring(PC));
+    std.TEXTIO.write(outline, string'("  "));
+    write(outline, to_hstring(OPCODE));
+    std.TEXTIO.write(outline, string'("  "));
+    write(outline, to_hstring(REG1));
+    std.TEXTIO.write(outline, string'("  "));
+    write(outline, to_hstring(REG2));
+-- write line to external file.
+    writeline(outfile, outline);
+    linenumber := linenumber + 1;
+  else
+    null;
+  end if;
+end process writing;
 
 end architecture;

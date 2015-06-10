@@ -69,7 +69,7 @@ Constraint Interaction Report
 =============================
 
 Constraint interactions for TS_u1_plasma_top_u0_clk_clk_2x_bufg_in = PERIOD TIMEGRP         "u1_plasma_top_u0_clk_clk_2x_bufg_in" TS_board_clk / 0.791666667 HIGH         50%;
-      36080 paths removed by TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE         0.31 ns HIGH 50%;
+      37824 paths removed by TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE         0.31 ns HIGH 50%;
 
 
 Clock Domain Overlap Report
@@ -149,6 +149,6 @@ TS_clk = PERIOD TIMEGRP "clk" TS_u1_plasma_top_u0_clk_clk_2x_bufg_in * 2 PHASE  
    u1_plasma_top/u2_ddr/u2_ddr/clk_p (u1_plasma_top/u2_ddr/u2_ddr/clk_p.CLK)
 }
 
-Timespec interaction analysis completed Wed May 20 06:28:32 2015
+Timespec interaction analysis completed Wed Jun 10 08:48:13 2015
 --------------------------------------------------------------------------------
 

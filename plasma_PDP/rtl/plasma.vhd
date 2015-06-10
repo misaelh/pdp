@@ -249,21 +249,23 @@ begin  --architecture
       if cache_access = '1' then    --Check if cache hit or write through
          cache_ram_enable <= '1';
          cache_ram_address(31 downto 2) <= ZERO(31 downto 12) & address_next(11 downto 2);
-         case address_next(3 downto 2) is
-           when "00" =>
-             cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
-             cache_ram_data_w  <= ZERO(31 downto 0) & ZERO(31 downto 0) & ZERO(31 downto 0) & cpu_data_w;
-           when "01" =>
-             cache_ram_byte_we <= ZERO(7 downto 0) & byte_we_next & ZERO(3 downto 0);
-             cache_ram_data_w  <= ZERO(31 downto 0) & ZERO(31 downto 0) & cpu_data_w & ZERO(31 downto 0);
-           when "10" =>
-             cache_ram_byte_we <= ZERO(3 downto 0) & byte_we_next & ZERO(7 downto 0);
-             cache_ram_data_w  <= ZERO(31 downto 0) & cpu_data_w & ZERO(31 downto 0) & ZERO(31 downto 0);
-           when "11" =>
-             cache_ram_byte_we <= byte_we_next & ZERO(11 downto 0);
-             cache_ram_data_w  <= cpu_data_w & ZERO(31 downto 0) & ZERO(31 downto 0) & ZERO(31 downto 0);
-           when others =>
-         end case;
+         cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
+         cache_ram_data_w  <= ZERO(31 downto 0) & ZERO(31 downto 0) & ZERO(31 downto 0) & cpu_data_w;
+         --case address_next(3 downto 2) is
+         --  when "00" =>
+         --    cache_ram_byte_we <= ZERO(11 downto 0) & byte_we_next;
+         --    cache_ram_data_w  <= ZERO(31 downto 0) & ZERO(31 downto 0) & ZERO(31 downto 0) & cpu_data_w;
+         --  when "01" =>
+         --    cache_ram_byte_we <= ZERO(7 downto 0) & byte_we_next & ZERO(3 downto 0);
+         --    cache_ram_data_w  <= ZERO(31 downto 0) & ZERO(31 downto 0) & cpu_data_w & ZERO(31 downto 0);
+         --  when "10" =>
+         --    cache_ram_byte_we <= ZERO(3 downto 0) & byte_we_next & ZERO(7 downto 0);
+         --    cache_ram_data_w  <= ZERO(31 downto 0) & cpu_data_w & ZERO(31 downto 0) & ZERO(31 downto 0);
+         --  when "11" =>
+         --    cache_ram_byte_we <= byte_we_next & ZERO(11 downto 0);
+         --    cache_ram_data_w  <= cpu_data_w & ZERO(31 downto 0) & ZERO(31 downto 0) & ZERO(31 downto 0);
+         --  when others =>
+         --end case;
       elsif cache_miss = '1' then  --Update cache after cache miss
          cache_ram_enable <= '1';
          cache_ram_byte_we <= ONES(15 downto 0);

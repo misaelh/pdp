@@ -8,7 +8,7 @@
 <msg type="info" file="Xst" num="1561" delta="old" >&quot;<arg fmt="%s" index="1">E:/pdp/plasma_PDP/rtl/bus_mux.vhd</arg>&quot; line <arg fmt="%d" index="2">82</arg>: Mux is complete : default of case is discarded
 </msg>
 
-<msg type="warning" file="Xst" num="795" delta="old" >&quot;<arg fmt="%s" index="1">E:/pdp/plasma_PDP/rtl/ddr_ctrl.vhd</arg>&quot; line <arg fmt="%d" index="2">365</arg>: Size of operands are different : result is &lt;false&gt;.
+<msg type="warning" file="Xst" num="795" delta="new" >&quot;<arg fmt="%s" index="1">E:/pdp/plasma_PDP/rtl/ddr_ctrl.vhd</arg>&quot; line <arg fmt="%d" index="2">371</arg>: Size of operands are different : result is &lt;false&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2117" delta="old" >HDL ADVISOR - Mux Selector &lt;<arg fmt="%s" index="1">init_step</arg>&gt; of Case statement line <arg fmt="%s" index="2">66</arg> was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
